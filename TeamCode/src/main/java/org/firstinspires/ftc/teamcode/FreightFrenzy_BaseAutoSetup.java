@@ -54,7 +54,7 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
             @Override
             public void onOpened() {
                 // supported camera resolutions (for the gold E4) are: 1280x720, 960x720, 768x432, 720x480, 640x480, 320x240, 176x144
-                phoneCam.startStreaming(720, 480, OpenCvCameraRotation.UPSIDE_DOWN);
+                phoneCam.startStreaming(720, 480, OpenCvCameraRotation.SIDEWAYS_RIGHT);
             }
 
             @Override
@@ -71,12 +71,24 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         robot.setTSETtoInitPosition();
 
         while (!isStarted() && !isStopRequested()) {
+            telemetry.addData("Alliance", side.toString());
+
             double angle = robot.odometer.getCurrentPosition().angle;
             tse_position = pipeline.tse_position;
-            telemetry.addData("Left yellow", pipeline.leftTotal);
-            telemetry.addData("Center yellow", pipeline.centerTotal);
-            telemetry.addData("Right yellow", pipeline.rightTotal);
+            telemetry.addData("\nLeft yellow", pipeline.leftTotal0);
+            telemetry.addData("Center yellow", pipeline.centerTotal0);
+            telemetry.addData("Right yellow", pipeline.rightTotal0);
             telemetry.addData("TSE position", pipeline.tse_position);
+            telemetry.addData("\nLeft cr", pipeline.leftTotal1);
+            telemetry.addData("Center cr", pipeline.centerTotal1);
+            telemetry.addData("Right cr", pipeline.rightTotal1);
+            telemetry.addData("\nLeft cb", pipeline.leftTotal2);
+            telemetry.addData("Center cb", pipeline.centerTotal2);
+            telemetry.addData("Right cb", pipeline.rightTotal2);
+
+            telemetry.addData("\nLeft a", pipeline.leftTotal3);
+            telemetry.addData("Center a", pipeline.centerTotal3);
+            telemetry.addData("Right a", pipeline.rightTotal3);
 
             telemetry.addData("\nOdo X", robot.odometer.x);
             telemetry.addData("\nOdo Y", robot.odometer.y);

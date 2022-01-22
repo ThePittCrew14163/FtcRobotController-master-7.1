@@ -312,17 +312,13 @@ class FreightFrenzyRobot {
             }
             double radians = Math.atan2(ydis, xdis);  // the direction the robot is supposed to go towards
 
-            double theta = ((heading/180)*Math.PI) - radians - Math.PI/4; // TODO: test and make sure the robot goes in the correct direction.
-            if (theta >= Math.PI) {
-                theta -= Math.PI*2;
-            } else if (theta < -Math.PI) {
-                theta += Math.PI*2;
-            }
+            double theta = ((heading/180)*Math.PI) - radians + Math.PI*3/4; // TODO: test and make sure the robot goes in the correct direction.
+
             double x_vector = Math.cos(theta);  // calculate ratio of x distance to y distance.
             double y_vector = Math.sin(theta);
 
             // make sure minimum value of larger vector is 1 while maintaining the ratio
-            double increase = 1 / Math.max(x_vector, y_vector);
+            double increase = Math.abs(1 / (0.0000000001 + Math.max(Math.abs(x_vector), Math.abs(y_vector))));
             x_vector*=increase;
             y_vector*=increase;
 
@@ -344,6 +340,15 @@ class FreightFrenzyRobot {
             if (start+millis < (int)System.currentTimeMillis()) {
                 break;
             }
+            this.program.telemetry.addData("x", position.x);
+            this.program.telemetry.addData("y", position.y);
+            this.program.telemetry.addData("xdis", xdis);
+            this.program.telemetry.addData("ydis", ydis);
+            this.program.telemetry.addData("theta", theta*180/Math.PI);
+            this.program.telemetry.addData("degrees", radians*180/Math.PI);
+            this.program.telemetry.addData("x_vector", x_vector);
+            this.program.telemetry.addData("y_vector", y_vector);
+            this.program.telemetry.update();
         }
         if (breakAtEnd) {
             setDriveBaseZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
