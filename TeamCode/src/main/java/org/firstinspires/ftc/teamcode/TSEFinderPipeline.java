@@ -10,12 +10,12 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class TSEFinderPipeline extends OpenCvPipeline {
     private Mat workingMatrix = new Mat();
     public TSE_Position tse_position = TSE_Position.CENTER;
-    private int leftBoxX = 70;
-    private int centerBoxX = 230;
-    private int rightBoxX = 370;
-    private int boxWidth = 110;
-    private int boxHeight = 70;
-    private int boxY = 330;
+    private int leftBoxX = 0;
+    private int centerBoxX = 180;
+    private int rightBoxX = 360;
+    private int boxWidth = 120;
+    private int boxHeight = 140;
+    private int boxY = 420;
 
     public double leftTotal, centerTotal, rightTotal;
 

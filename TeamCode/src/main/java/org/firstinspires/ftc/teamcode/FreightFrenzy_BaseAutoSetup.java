@@ -54,7 +54,7 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
             @Override
             public void onOpened() {
                 // supported camera resolutions (for the gold E4) are: 1280x720, 960x720, 768x432, 720x480, 640x480, 320x240, 176x144
-                phoneCam.startStreaming(720, 480, OpenCvCameraRotation.SIDEWAYS_LEFT);
+                phoneCam.startStreaming(720, 480, OpenCvCameraRotation.UPSIDE_DOWN);
             }
 
             @Override
@@ -71,11 +71,17 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         robot.setTSETtoInitPosition();
 
         while (!isStarted() && !isStopRequested()) {
+            double angle = robot.odometer.getCurrentPosition().angle;
             tse_position = pipeline.tse_position;
             telemetry.addData("Left yellow", pipeline.leftTotal);
             telemetry.addData("Center yellow", pipeline.centerTotal);
             telemetry.addData("Right yellow", pipeline.rightTotal);
             telemetry.addData("TSE position", pipeline.tse_position);
+
+            telemetry.addData("\nOdo X", robot.odometer.x);
+            telemetry.addData("\nOdo Y", robot.odometer.y);
+            telemetry.addData("\nOdo angle", angle);
+
             telemetry.update();
 
             // Don't burn CPU cycles busy-looping

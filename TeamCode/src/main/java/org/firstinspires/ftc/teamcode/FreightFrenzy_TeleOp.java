@@ -65,6 +65,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
 
         // Set servo initial positions
         robot.setOdoPodsUp();
+        //robot.setOdoPodsDown();
         robot.setTSETtoInitPosition();
 
         robot.armTurnstile.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -89,7 +90,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
                 }
             }
             if (gamepad1.left_stick_x != 0 || gamepad1.left_stick_y != 0) {
-                leftStickAngle = Math.atan2(-gamepad1.left_stick_y, gamepad1.left_stick_x) + (Math.PI * 5 / 4); // TODO: test and make sure the robot goes in the correct direction.
+                leftStickAngle = Math.atan2(-gamepad1.left_stick_y, gamepad1.left_stick_x) + (Math.PI * 5 / 4);
                 if (leftStickAngle >= Math.PI) {
                     leftStickAngle -= Math.PI * 2;
                 }

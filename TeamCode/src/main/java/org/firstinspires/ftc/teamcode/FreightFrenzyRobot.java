@@ -47,14 +47,12 @@ class FreightFrenzyRobot {
 
     public final double MIN_DRIVE_BASE_TURN_POWER = 0.18;
 
-    public final int ARM_TURNSTILE_LEFT_MAX_CLICKS = -2625; // full rotation is 3500 clicks, and this limits it to 270 deg rotation either way
-    public final int ARM_TURNSTILE_RIGHT_MAX_CLICKS = 2625;
-    public final double ARM_TURNSTILE_CLICKS_PER_DEG = 3500 / 360.0;
-    public final double ARM_TURNSTILE_MAX_DEG = 270;
+    public final double ARM_TURNSTILE_CLICKS_PER_DEG = 1530 / 180.0;
+    public final double ARM_TURNSTILE_MAX_DEG = 200;
     /**
-     * When it is turned 90 degrees up. It is capable of turning much farther, likely past 3000 clicks.
+     * When it is turned 90 degrees up. It is capable of turning much farther, almost to -900 clicks.
      */
-    public final int ARM_HINGE_UP_CLICKS = 1792;
+    public final int ARM_HINGE_UP_CLICKS = -590;
     public final int ARM_HINGE_DOWN_CLICKS = 0;
 
     public final double X_ODO_POD_DOWN_POSITION = 1.0; // TODO: actually put in the correct positions if these are wrong
@@ -314,7 +312,7 @@ class FreightFrenzyRobot {
             }
             double radians = Math.atan2(ydis, xdis);  // the direction the robot is supposed to go towards
 
-            double theta = ((heading/180)*Math.PI) + radians + Math.PI*3/4; // TODO: test and make sure the robot goes in the correct direction.
+            double theta = ((heading/180)*Math.PI) - radians - Math.PI/4; // TODO: test and make sure the robot goes in the correct direction.
             if (theta >= Math.PI) {
                 theta -= Math.PI*2;
             } else if (theta < -Math.PI) {
