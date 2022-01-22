@@ -321,6 +321,11 @@ class FreightFrenzyRobot {
             double x_vector = Math.cos(theta);  // calculate ratio of x distance to y distance.
             double y_vector = Math.sin(theta);
 
+            // make sure minimum value of larger vector is 1 while maintaining the ratio
+            double increase = 1 / Math.max(x_vector, y_vector);
+            x_vector*=increase;
+            y_vector*=increase;
+
             // complicated logic to make the robot correct if it turns a bit off heading.
             double sign;
             double difference = angle-heading;
