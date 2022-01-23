@@ -102,18 +102,20 @@ public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(40, 0.7, 111, 15, 4, 1200, 0.05, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(40, 0.7, 113, 13, 3, 1000, 0.05, false);
-        robot.odStrafe(45, 0.6, 124, 12, 3, 4000);
+        robot.odStrafe(40, 0.6, 113, 13, 3, 1000, 0.05, false);
+        robot.odStrafe(45, 0.5, 124, 12, 3, 4000);
         robot.intake.setPower(robot.INTAKE_ON_POWER/3);
 
         // score duck
         robot.odStrafe(0, 1, 129, 22, 4, 2000, 0.05, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
+        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*170, robot.armTurnstile);
         robot.odStrafe(0, 1, 130, 39, 4, 2000, 0.05, false);
         robot.odTurn(-90, 1, 900);
 
         robot.odStrafe(-90, 1, 113, 46, 4, 2000, 0.05, false);
         robot.odStrafe(-90, 0.4, 101, 46, 2, 1000);
+        robot.odometer.odSleep(500);
         robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
         robot.odometer.odSleep(1200);
 

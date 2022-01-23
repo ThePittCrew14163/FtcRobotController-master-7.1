@@ -82,8 +82,8 @@ public class FreightFrenzy_WarehouseSideAuto extends FreightFrenzy_BaseAutoSetup
         }
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS * 3 / 90, robot.armHinge);
-        robot.odTurn(90, 1, 800);
-        robot.odStrafe(90, 1, 68, 5, 3, 1000);
+        robot.odTurn(90, 1, 900);
+        robot.odStrafe(90, 1, 68, 3, 3, 1500);
 
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odStrafe(90, 1, 42, 5, 3, 1400);
