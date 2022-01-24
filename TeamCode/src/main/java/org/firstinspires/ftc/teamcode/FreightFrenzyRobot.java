@@ -55,7 +55,7 @@ class FreightFrenzyRobot {
     public final int ARM_HINGE_UP_CLICKS = -590;
     public final int ARM_HINGE_DOWN_CLICKS = 0;
 
-    public final double X_ODO_POD_DOWN_POSITION = 1.0; // TODO: actually put in the correct positions if these are wrong
+    public final double X_ODO_POD_DOWN_POSITION = 1.0;
     public final double X_ODO_POD_UP_POSITION = 0.0;
     public final double Y_ODO_POD_DOWN_POSITION = 1.0;
     public final double Y_ODO_POD_UP_POSITION = 0.4;
@@ -100,7 +100,7 @@ class FreightFrenzyRobot {
         TSET_Extender1 = hardwareMap.get(Servo.class, "TSET_Extender1");
         TSET_Extender2 = hardwareMap.get(Servo.class, "TSET_Extender2");
 
-        distanceSensor = hardwareMap.get(Rev2mDistanceSensor.class, "distanceSensor"); // TODO: actually configure this sensor
+        distanceSensor = hardwareMap.get(Rev2mDistanceSensor.class, "distanceSensor");
 
         setDriveBaseZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -312,7 +312,7 @@ class FreightFrenzyRobot {
             }
             double radians = Math.atan2(ydis, xdis);  // the direction the robot is supposed to go towards
 
-            double theta = ((heading/180)*Math.PI) - radians + Math.PI*3/4; // TODO: test and make sure the robot goes in the correct direction.
+            double theta = ((heading/180)*Math.PI) - radians + Math.PI*3/4;
 
             double x_vector = Math.cos(theta);  // calculate ratio of x distance to y distance.
             double y_vector = Math.sin(theta);

@@ -69,8 +69,8 @@ public class FreightFrenzy_WarehouseSideAuto extends FreightFrenzy_BaseAutoSetup
             robot.odStrafe(20, 1, 67, 12, 4, 1200, 0.05, false);
             robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -135, robot.armTurnstile);
             robot.odTurn(110, 1, 1000);
-            robot.odStrafe(0, 0.7, 76, 23, 4, 1000, 0.05, false);
-            robot.odStrafe(0, 0.4, 77, 28, 2, 1500);
+            robot.odStrafe(110, 0.7, 76, 23, 4, 1000, 0.05, false);
+            robot.odStrafe(110, 0.4, 77, 28, 2, 1500);
 
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);

@@ -44,11 +44,11 @@ public class TSEFinderPipeline extends OpenCvPipeline {
         Imgproc.rectangle(workingMatrix, new Rect(centerBoxX, boxY, boxWidth, boxHeight), new Scalar(0,255,0));
         Imgproc.rectangle(workingMatrix, new Rect(rightBoxX, boxY, boxWidth, boxHeight), new Scalar(0,255,0));
 
-        // look for a lack of yellow (the Y of YCrCb). The TSE is blue, but least Y reads better than highest Cb
         leftTotal0 = Core.sumElems(matLeft).val[0];
         centerTotal0 = Core.sumElems(matCenter).val[0];
         rightTotal0 = Core.sumElems(matRight).val[0];
 
+        // look for reddest area (the Cr of YCrCb). The TSE is red, and the Cr channel can't tell gray from black or floor tile from hub or barrier
         leftTotal1 = Core.sumElems(matLeft).val[1];
         centerTotal1 = Core.sumElems(matCenter).val[1];
         rightTotal1 = Core.sumElems(matRight).val[1];
@@ -61,8 +61,8 @@ public class TSEFinderPipeline extends OpenCvPipeline {
         centerTotal3 = Core.sumElems(matCenter).val[3];
         rightTotal3 = Core.sumElems(matRight).val[3];
 
-        if (leftTotal0 < centerTotal0) {
-            if (leftTotal0 < rightTotal0) {
+        if (leftTotal1 > centerTotal1) {
+            if (leftTotal1 > rightTotal1) {
                 // team shipping element is to the left
                 tse_position = TSE_Position.LEFT;
             } else {
@@ -70,7 +70,7 @@ public class TSEFinderPipeline extends OpenCvPipeline {
                 tse_position = TSE_Position.RIGHT;
             }
         } else {
-            if (centerTotal0 < rightTotal0) {
+            if (centerTotal1 > rightTotal1) {
                 // team shipping element is in the center
                 tse_position = TSE_Position.CENTER;
             } else {

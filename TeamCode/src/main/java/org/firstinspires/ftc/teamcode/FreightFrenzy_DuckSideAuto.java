@@ -86,31 +86,33 @@ public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
         } else {
             robot.odStrafe(0, 1, 122, 9, 4, 3000);
         }
-        robot.odStrafe(15, 0.4, 132, 6, 2, 1200, 0.05, true);
-        robot.odometer.odSleep(500);
+        robot.odStrafe(15, 0.45, 130, 7, 3, 1000);
+        robot.odStrafe(15, 0.35, 132, 6, 1.5, 1000, 0.05, true);
+        robot.odometer.odSleep(800);
 
         // spin carousel
         robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY);
         robot.odometer.odSleep(3300);
 
-        // pick up duck TODO: make duck-finding vision software
-        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*180, robot.armTurnstile);
+        // pick up duck TODO: make duck-finding vision software?
+        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-10, robot.armTurnstile);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*45/90, robot.armHinge);
-        robot.odStrafe(20, 0.8, 117, 17, 4, 1300, 0.05, false);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
+        robot.odStrafe(0, 1, 107, 17, 4, 1300, 0.05, false);
+        robot.motorTurnNoReset(0.4, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odStrafe(40, 0.7, 111, 15, 4, 1200, 0.05, false);
+        robot.odTurn(-140, 1, 1000);
+        robot.odStrafe(-140, 0.7, 108, 15, 4, 1200, 0.05, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(40, 0.6, 113, 13, 3, 1000, 0.05, false);
-        robot.odStrafe(45, 0.5, 124, 12, 3, 4000);
+        robot.odStrafe(-135, 0.5, 118, 15, 3, 4000);
         robot.intake.setPower(robot.INTAKE_ON_POWER/3);
 
         // score duck
-        robot.odStrafe(0, 1, 129, 22, 4, 2000, 0.05, false);
+        robot.odStrafe(-150, 0.7, 123, 24, 4, 1500, 0.05, false);
+        robot.odStrafe(-180, 1, 129, 34, 4, 1500, 0.05, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
-        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*170, robot.armTurnstile);
-        robot.odStrafe(0, 1, 130, 39, 4, 2000, 0.05, false);
+        robot.odStrafe(-180, 1, 130, 39, 4, 1000, 0.05, false);
+        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-190, robot.armTurnstile);
         robot.odTurn(-90, 1, 900);
 
         robot.odStrafe(-90, 1, 113, 46, 4, 2000, 0.05, false);
@@ -121,13 +123,13 @@ public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
 
         // park
         robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
-        robot.odStrafe(-90, 1, 118, 53, 4, 2000, 0.05, false);
+        robot.odStrafe(-90, 1, 116, 53, 4, 2000, 0.05, false);
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
-        robot.odTurn(90, 1, 1700);
-        robot.odStrafe(90, 0.7, 134, 47, 4, 1300, 0.05, false);
-        robot.odStrafe(90, 0.5, 139, 34, 3, 1300, 0.05, true);
-
+        robot.odTurn(-180, 1, 600, 0.008, false);
+        robot.odTurn(90, 1, 800, 0.008, true);
+        robot.odStrafe(90, 0.7, 133, 47, 4, 1300, 0.05, false);
+        robot.odStrafe(90, 0.5, 140, 33, 3, 1300, 0.05, true);
 
     }
 }

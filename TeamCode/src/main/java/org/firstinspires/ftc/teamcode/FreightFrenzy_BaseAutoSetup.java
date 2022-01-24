@@ -9,6 +9,10 @@ import org.openftc.easyopencv.OpenCvInternalCamera;
 
 /**
  * odometry (x,y) is (0,0) for the back corner of the robot's alliance's warehouse.
+ *
+ * The robot must start on a tile between the wall and a barcode.
+ * The robot must be positioned with its back flat against the wall and its left side aligned with the inside of the left seam of the tile it starts on.
+ * For the blue side warehouse setup, the robot can't line up with the seam and must have the side of its front left wheel touching the barrier.
  */
 public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
     public FreightFrenzyRobot robot = new FreightFrenzyRobot();
@@ -24,7 +28,7 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
     TSE_Position tse_position;
 
     /**
-     * Start robot // TODO: decide where to start robot for duck-side auto
+     * Start robot
      */
     @Override
     public void runOpMode() {
