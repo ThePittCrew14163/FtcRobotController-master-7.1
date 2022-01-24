@@ -100,7 +100,7 @@ public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
         // pick up duck TODO: make duck-finding vision software?
         robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*60/90, robot.armHinge);
-        robot.odStrafe(-10, 0.8, 105, 16, 4, 1600, 0.04, false);
+        robot.odStrafe(-10, 0.8, 105, 13, 4, 1600, 0.04, false);
         robot.motorTurnNoReset(0.4, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(-150, 0.8, 1100);
