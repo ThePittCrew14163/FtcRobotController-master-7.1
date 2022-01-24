@@ -57,7 +57,7 @@ class FreightFrenzyRobot {
 
     public final double X_ODO_POD_DOWN_POSITION = 1.0;
     public final double X_ODO_POD_UP_POSITION = 0.0;
-    public final double Y_ODO_POD_DOWN_POSITION = 1.0;
+    public final double Y_ODO_POD_DOWN_POSITION = 0.78;
     public final double Y_ODO_POD_UP_POSITION = 0.4;
 
     /**

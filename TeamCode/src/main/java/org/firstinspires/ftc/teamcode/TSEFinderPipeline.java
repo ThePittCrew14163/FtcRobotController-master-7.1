@@ -11,8 +11,8 @@ public class TSEFinderPipeline extends OpenCvPipeline {
     private Mat workingMatrix = new Mat();
     public TSE_Position tse_position = TSE_Position.CENTER;
     private int leftBoxX = 0;
-    private int centerBoxX = 275;
-    private int rightBoxX = 550;
+    private int centerBoxX = 250;
+    private int rightBoxX = 500;
     private int boxWidth = 160;
     private int boxHeight = 140;
     private int boxY = 330;

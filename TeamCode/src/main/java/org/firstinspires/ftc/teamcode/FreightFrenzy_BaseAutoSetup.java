@@ -79,13 +79,13 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
 
             double angle = robot.odometer.getCurrentPosition().angle;
             tse_position = pipeline.tse_position;
-            telemetry.addData("\nLeft yellow", pipeline.leftTotal0);
-            telemetry.addData("Center yellow", pipeline.centerTotal0);
-            telemetry.addData("Right yellow", pipeline.rightTotal0);
-            telemetry.addData("TSE position", pipeline.tse_position);
             telemetry.addData("\nLeft cr", pipeline.leftTotal1);
             telemetry.addData("Center cr", pipeline.centerTotal1);
             telemetry.addData("Right cr", pipeline.rightTotal1);
+            telemetry.addData("TSE position", pipeline.tse_position);
+            telemetry.addData("\nLeft yellow", pipeline.leftTotal0);
+            telemetry.addData("Center yellow", pipeline.centerTotal0);
+            telemetry.addData("Right yellow", pipeline.rightTotal0);
             telemetry.addData("\nLeft cb", pipeline.leftTotal2);
             telemetry.addData("Center cb", pipeline.centerTotal2);
             telemetry.addData("Right cb", pipeline.rightTotal2);
@@ -103,6 +103,8 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
             // Don't burn CPU cycles busy-looping
             robot.odometer.odSleep(50);
         }
+        telemetry.clear();
+        telemetry.update();
 
         // duck-side or warehouse side or other auto will run here
         runRobotAuto();
