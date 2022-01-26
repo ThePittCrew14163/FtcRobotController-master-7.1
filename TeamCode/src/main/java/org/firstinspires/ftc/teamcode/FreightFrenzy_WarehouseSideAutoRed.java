@@ -94,12 +94,14 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             }
 
             // leave warehouse
-            robot.odStrafe(90, 0.7, 44, 3, 3, 1200, 0.05, false);
+            robot.odStrafe(90, 0.8, 44, 3, 3, 1200, 0.05, false);
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 75 / 90, robot.armHinge);
             robot.odStrafe(90, 1, 65, 5, 3, 1200, 0.05, false);
 
             // score freight
-            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -167, robot.armTurnstile);
+            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -168, robot.armTurnstile);
+            robot.odStrafe(100, 1, 68, 10, 4, 1000, 0.05, false);
+            robot.odTurn(140, 1, 400, 0.01, false);
             robot.odStrafe(140, 1, 76, 26, 4, 1000, 0.05, false);
             robot.odStrafe(140, 0.4, 77, 30, 2, 1200);
 
@@ -113,8 +115,8 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             robot.intake.setPower(0);
             robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 16 / 90, robot.armHinge);
             robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
-            //robot.odTurn(90, 1, 400);
-            robot.odStrafe(90, 1, 68, 2, 3, 1700);
+            robot.odTurn(90, 1, 450, 0.01, false);
+            robot.odStrafe(90, 1, 68, 2, 3, 1600);
             robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 5 / 90, robot.armHinge);
         }
 
