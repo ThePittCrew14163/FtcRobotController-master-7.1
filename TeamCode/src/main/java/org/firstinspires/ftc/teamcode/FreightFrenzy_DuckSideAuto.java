@@ -70,7 +70,7 @@ public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
         } else { // top tray
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
             robot.odStrafe(0, 1, 99, 16, 4, 1200, 0.05, false);
-            robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*60, robot.armTurnstile);
+            robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*65, robot.armTurnstile);
             robot.odStrafe(0, 0.4, 98, 32, 2, 1500);
 
             robot.odometer.odSleep(800);

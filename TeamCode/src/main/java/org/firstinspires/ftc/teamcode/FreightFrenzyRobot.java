@@ -64,7 +64,7 @@ class FreightFrenzyRobot {
      * How many cm (give or take ~1cm) this.distanceSensor normally
      * detects from it to the bottom of the intake hand.
      */
-    public final double MIN_CM_FOR_NO_FREIGHT = 12.2;
+    public final double MIN_CM_FOR_NO_FREIGHT = 10;
 
     public final int DUCK_SPINNER_VELOCITY = 5000;
 
