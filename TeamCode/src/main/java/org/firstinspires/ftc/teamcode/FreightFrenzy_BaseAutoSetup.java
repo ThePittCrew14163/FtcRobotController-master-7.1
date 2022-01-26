@@ -16,12 +16,6 @@ import org.openftc.easyopencv.OpenCvInternalCamera;
  */
 public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
     public FreightFrenzyRobot robot = new FreightFrenzyRobot();
-    Alliance side = Alliance.Red;
-    /**
-     * 1 if side == Blue,
-     * -1 if side == Red
-     */
-    int s = 1; // 1 is default value
 
     OpenCvInternalCamera phoneCam;
     TSEFinderPipeline pipeline;
@@ -33,16 +27,6 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(hardwareMap, this);
-        if (gamepad1.x || gamepad2.x) {
-            side = Alliance.Blue;
-            s = 1;
-        } else if (gamepad1.b || gamepad2.b) {
-            side = Alliance.Red;
-            s = -1;
-        }
-
-        telemetry.addData("Alliance", side.toString());
-        telemetry.update();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
@@ -75,8 +59,6 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         robot.setTSETtoInitPosition();
 
         while (!isStarted() && !isStopRequested()) {
-            telemetry.addData("Alliance", side.toString());
-
             double angle = robot.odometer.getCurrentPosition().angle;
             tse_position = pipeline.tse_position;
             telemetry.addData("\nLeft cr", pipeline.leftTotal1);
@@ -122,16 +104,12 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
     /**
      * Inheriting autonomous classes override this method to set odometry coordinates       <br>
      * Note that odometry (x,y) is (0,0) for the back corner of the robot's alliance's warehouse.
-     *      <br><br>
-     * Note that this.s == -1 if side == Red, and this.s == 1 if side == Blue               <br>
-     * Note that this.Alliance is properly set by the time this method is called
-     *      <br><br>
      * example use:                <br>
-     *    robot.odometer.x = 9*s;  <br>
-     *    robot.odometer.y = 96;
+     *    robot.odometer.x = 0;  <br>
+     *    robot.odometer.y = 2;
      */
     public void initOdometryCoordinates() {
-        robot.odometer.x = 9*s;
-        robot.odometer.y = 96;
+        robot.odometer.x = 0;
+        robot.odometer.y = 2;
     }
 }

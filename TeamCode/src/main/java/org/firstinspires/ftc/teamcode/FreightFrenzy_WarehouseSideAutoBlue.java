@@ -4,17 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-@Autonomous(name = "Warehouse side (Red or Blue)")
-public class FreightFrenzy_WarehouseSideAuto extends FreightFrenzy_BaseAutoSetup {
+@Autonomous(name = "Warehouse side BLUE")
+public class FreightFrenzy_WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
     long startTimeInMs;
 
     @Override
     public void initOdometryCoordinates() {
-        if (this.side == Alliance.Blue) {
-            robot.odometer.x = 54;
-        } else {
-            robot.odometer.x = -64.5;
-        }
+        robot.odometer.x = 54;
         robot.odometer.y = 2;
     }
 
@@ -23,29 +19,7 @@ public class FreightFrenzy_WarehouseSideAuto extends FreightFrenzy_BaseAutoSetup
         startTimeInMs = System.currentTimeMillis();
         telemetry.addData("start ms", startTimeInMs);
         telemetry.update();
-        if (this.side == Alliance.Red) {
-            this.redSideAuto();
-        } else {
-            this.blueSideAuto();
-        }
 
-        // score pre-loaded freight
-
-        // loop until robot has less than 4-5 seconds {
-        //     align with wall and go into warehouse
-        //     dig into the freight pile until distance sensor detects freight or until ~3 seconds are up
-        //     drive out and score that freight
-        // }
-
-        // park
-
-    }
-
-    public void redSideAuto() {
-        // TODO: finish blue side, then copy here and adjust
-    }
-
-    public void blueSideAuto() {
         // drive around TSE and score pre-loaded freight
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         if (this.tse_position == TSE_Position.LEFT) { // bottom tray

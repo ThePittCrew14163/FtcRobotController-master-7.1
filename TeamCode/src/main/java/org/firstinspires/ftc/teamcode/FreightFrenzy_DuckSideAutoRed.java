@@ -2,40 +2,18 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name="  Duck side    (Red or Blue)")
-public class FreightFrenzy_DuckSideAuto extends FreightFrenzy_BaseAutoSetup {
+@Autonomous(name="RED Duck side")
+public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
     @Override
     public void initOdometryCoordinates() {
-        if (this.side == Alliance.Blue) {
-            robot.odometer.x = 100;
-        } else {
-            robot.odometer.x = -112;
-        }
+        robot.odometer.x = -112;
         robot.odometer.y = 2;
     }
 
     @Override
     public void runRobotAuto() {
-        if (this.side == Alliance.Red) {
-            this.redSideDuckAuto();
-        } else {
-            this.blueSideDuckAuto();
-        }
-    }
-
-    public void redSideDuckAuto() {
-        // TODO: finish blue side, then copy here and adjust
-        robot.odStrafe(0, 0.4, -112, 24, 4);
-        robot.odStrafe(0, 0.4, -100, 18, 4);
-        robot.odTurn(120, 0.5, 1500);
-        robot.odStrafe(120, 0.4, -120, 35, 4);
-        robot.odStrafe(90, 0.4, -130, 35, 4);
-        robot.odStrafe(0, 0.4, -112, 2, 4);
-
-    }
-
-    public void blueSideDuckAuto() {
+        // TODO: replace blue-side code with actual red-side code
         // drive around TSE and score pre-loaded freight
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         if (this.tse_position == TSE_Position.LEFT) { // bottom tray
