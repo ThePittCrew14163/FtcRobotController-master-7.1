@@ -89,7 +89,7 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
                 robot.odStrafe(-90-(c*6), 0.5, -41+(c*3), 5+(c*8), 4, 1000, 0.05, false);
                 //if (robot.distanceSensor.getDistance(DistanceUnit.CM) > robot.MIN_CM_FOR_NO_FREIGHT) {break;}
                 robot.odStrafe(-78-(c*6), 0.6, -34+(c*4), 6+(c*9), 4, 1000, 0.05, false);
-                if (robot.distanceSensor.getDistance(DistanceUnit.CM) < robot.MIN_CM_FOR_NO_FREIGHT || c >= 2) {break;}
+                if (robot.distanceSensor.getDistance(DistanceUnit.CM) < robot.MIN_CM_FOR_NO_FREIGHT || c >= 1) {break;}
 
                 robot.odStrafe(-86-(c*6), 0.7, -42+c, 5+(c*7), 4, 1000, 0.05, false);
 
@@ -105,10 +105,10 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             robot.odStrafe(-90, 1, -65, 5, 3, 1200, 0.05, false);
 
             // score freight
-            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -168, robot.armTurnstile);
+            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 168, robot.armTurnstile);
             robot.odStrafe(-100, 1, -68, 10, 4, 1000, 0.05, false);
             robot.odTurn(-140, 1, 400, 0.01, false);
-            robot.odStrafe(-140, 1, -75, 24, 4, 1000, 0.05, false);
+            robot.odStrafe(-140, 1, -73, 22, 4, 1000, 0.05, false);
             robot.odStrafe(-140, 0.4, -76, 29, 2, 1100);
 
             robot.odometer.odSleep(300);
