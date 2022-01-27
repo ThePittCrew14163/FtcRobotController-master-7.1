@@ -48,11 +48,11 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
 
         } else { // top tray
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 75 / 90, robot.armHinge);
-            robot.odStrafe(-20, 1, -67, 10, 4, 1200, 0.05, false);
-            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 165, robot.armTurnstile);
+            robot.odStrafe(-20, 1, -66, 10, 4, 1200, 0.05, false);
+            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 155, robot.armTurnstile);
             robot.odTurn(-140, 1, 1000);
-            robot.odStrafe(-140, 1, -76, 24, 4, 1000, 0.05, false);
-            robot.odStrafe(-140, 0.4, -77, 28, 2, 1500);
+            robot.odStrafe(-140, 1, -75, 24, 4, 1000, 0.05, false);
+            robot.odStrafe(-140, 0.4, -76, 28, 2, 1500);
 
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
@@ -86,7 +86,7 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             robot.odStrafe(-90, 1, -46, 5, 3, 800, 0.05, false);
             int c = 0;
             while (robot.distanceSensor.getDistance(DistanceUnit.CM) > robot.MIN_CM_FOR_NO_FREIGHT && c < 2) {
-                robot.odStrafe(-90-(c*6), 0.5, -41+(c*3), 5+(c*8), 4, 1000, 0.05, false);
+                robot.odStrafe(-90-(c*6), 0.5, -40+(c*3), 5+(c*8), 4, 1000, 0.05, false);
                 //if (robot.distanceSensor.getDistance(DistanceUnit.CM) > robot.MIN_CM_FOR_NO_FREIGHT) {break;}
                 robot.odStrafe(-78-(c*6), 0.6, -34+(c*4), 6+(c*9), 4, 1000, 0.05, false);
                 if (robot.distanceSensor.getDistance(DistanceUnit.CM) < robot.MIN_CM_FOR_NO_FREIGHT || c >= 1) {break;}
@@ -105,11 +105,11 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             robot.odStrafe(-90, 1, -65, 5, 3, 1200, 0.05, false);
 
             // score freight
-            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 168, robot.armTurnstile);
+            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 160, robot.armTurnstile);
             robot.odStrafe(-100, 1, -68, 10, 4, 1000, 0.05, false);
             robot.odTurn(-140, 1, 400, 0.01, false);
-            robot.odStrafe(-140, 1, -73, 22, 4, 1000, 0.05, false);
-            robot.odStrafe(-140, 0.4, -76, 29, 2, 1100);
+            robot.odStrafe(-140, 1, -72, 22, 4, 1000, 0.05, false);
+            robot.odStrafe(-140, 0.4, -75, 29, 2, 1100);
 
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
