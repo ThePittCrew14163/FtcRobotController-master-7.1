@@ -27,7 +27,7 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.intake.setPower(robot.INTAKE_ON_POWER/3);
             robot.odometer.odSleep(400);
 
-            robot.odStrafe(0, 1, -108, 16, 4, 1500, 0.05, false);
+            robot.odStrafe(-40, 1, -108, 16, 4, 1500, 0.05, false);
 
         } else if (this.tse_position == TSE_Position.CENTER) { // bottom tray
             robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*49/90, robot.armHinge);
@@ -63,12 +63,14 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*105/90, robot.armHinge);
         if (this.tse_position == TSE_Position.RIGHT) {
             robot.odStrafe(0, 1, -124, 19, 4, 3000);
+        } else if (this.tse_position == TSE_Position.CENTER) {
+            robot.odStrafe(0, 1, -121, 12, 4, 3000);
         } else {
-            robot.odStrafe(0, 1, -121, 9, 4, 3000);
+            robot.odStrafe(-40, 1, -123, 12, 4, 3000);
         }
-        robot.odTurn(-100, 1, 1000, 0.03, false);
-        robot.odStrafe(-100, 0.4, -133, 11, 3, 1000, 0.02, false);
-        robot.odStrafe(-100, 0.35, -135, 10, 1.5, 1000, 0.02, true);
+        robot.odTurn(-100, 1, 800, 0.025, false);
+        robot.odStrafe(-100, 0.4, -133, 12, 3, 1000, 0.015, false);
+        robot.odStrafe(-100, 0.35, -135, 11, 1.5, 1000, 0.02, true);
         robot.odometer.odSleep(400);
 
         // spin carousel
@@ -112,8 +114,8 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
         robot.odTurn(180, 1, 600, 0.008, false);
         robot.odTurn(-90, 1, 800, 0.008, true);
-        robot.odStrafe(-90, 0.7, -132, 47, 4, 1300, 0.05, false);
-        robot.odStrafe(-90, 0.5, -140, 33, 3, 1300, 0.05, true);
+        robot.odStrafe(-90, 0.7, -132, 44, 4, 1300, 0.05, false);
+        robot.odStrafe(-90, 0.5, -140, 32, 3, 1300, 0.06, true);
 
     }
 }
