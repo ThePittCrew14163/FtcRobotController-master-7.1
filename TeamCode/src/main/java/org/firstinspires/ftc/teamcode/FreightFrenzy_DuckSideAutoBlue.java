@@ -91,7 +91,6 @@ public class FreightFrenzy_DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup 
 
         // score duck
         robot.odStrafe(-150, 0.7, 123, 24, 4, 1500, 0.05, false);
-        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odStrafe(-180, 1, 129, 34, 4, 1500, 0.04, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
         robot.odStrafe(-180, 1, 130, 42, 4, 1000, 0.04, false);

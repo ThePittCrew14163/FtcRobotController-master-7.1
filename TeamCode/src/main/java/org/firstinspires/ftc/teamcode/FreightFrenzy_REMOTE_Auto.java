@@ -69,7 +69,7 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(0, 1, 121, 9, 4, 3000);
         }
         robot.odStrafe(15, 0.45, 128, 6, 3, 1000);
-        robot.odStrafe(15, 0.35, 130, 5, 1.5, 1000, 0.05, true);
+        robot.odStrafe(15, 0.35, 130, 5, 1.5, 1000, 0.04, true);
         robot.odometer.odSleep(400);
 
         // spin carousel
@@ -81,7 +81,9 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*60/90, robot.armHinge);
         robot.odStrafe(-10, 0.8, 102, 13, 4, 1600, 0.04, false);
+        robot.odometer.odSleep(300);
         robot.motorTurnNoReset(0.4, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
+        robot.odometer.odSleep(400);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(-150, 0.8, 1100);
         robot.odStrafe(-150, 0.7, 100, 17, 4, 1200, 0.04, false);
@@ -91,14 +93,14 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
 
         // score duck
         robot.odStrafe(-150, 0.8, 108, 19, 4, 1500, 0.05, false);
-        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*71/90, robot.armHinge);
         robot.odStrafe(-180, 1, 98, 23, 4, 1000, 0.04, false);
         robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-180, robot.armTurnstile);
-        robot.odStrafe(-180, 1, 86, 26, 4, 1500, 0.04, false);
-        robot.odStrafe(-180, 0.4, 83, 28, 4, 1200);
+        robot.odStrafe(-180, 1, 87, 25, 4, 1500, 0.04, false);
+        robot.odStrafe(-180, 0.4, 84, 26, 4, 1200);
+        robot.odTurn(-180, 1, 300);
 
-        robot.odometer.odSleep(600);
+        robot.odometer.odSleep(1200);
         robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.9);
         robot.odometer.odSleep(1200);
 
@@ -115,7 +117,7 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 5 / 90, robot.armHinge);
 
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odStrafe(90, 1, 42, 5, 4, 800);
+        robot.odStrafe(90, 1, 42, 5, 4, 2000);
 
     }
 }
