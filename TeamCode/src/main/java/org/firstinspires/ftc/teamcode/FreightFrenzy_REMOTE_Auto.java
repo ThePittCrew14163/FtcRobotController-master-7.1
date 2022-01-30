@@ -64,11 +64,11 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.55, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*10, robot.armTurnstile);
         robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*105/90, robot.armHinge);
         if (this.tse_position == TSE_Position.LEFT) {
-            robot.odStrafe(0, 1, 124, 19, 4, 3000);
+            robot.odStrafe(0, 1, 124, 22, 4, 3000);
         } else {
             robot.odStrafe(0, 1, 121, 9, 4, 3000);
         }
-        robot.odStrafe(15, 0.45, 128, 6, 3, 1000);
+        robot.odStrafe(15, 0.42, 128, 6, 3, 1000, 0.04, true);
         robot.odStrafe(15, 0.35, 130, 5, 1.5, 1000, 0.04, true);
         robot.odometer.odSleep(400);
 
@@ -89,15 +89,16 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(-150, 0.7, 100, 17, 4, 1200, 0.04, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(-145, 0.38, 121, 16, 3, 4000);
+        robot.odStrafe(-145, 0.4, 121, 16, 3, 4500);
 
         // score duck
         robot.odStrafe(-150, 0.8, 108, 19, 4, 1500, 0.05, false);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*71/90, robot.armHinge);
+        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*73/90, robot.armHinge);
         robot.odStrafe(-180, 1, 98, 23, 4, 1000, 0.04, false);
         robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-180, robot.armTurnstile);
         robot.odStrafe(-180, 1, 87, 25, 4, 1500, 0.04, false);
-        robot.odStrafe(-180, 0.4, 84, 26, 4, 1200);
+        robot.odStrafe(-180, 0.4, 84, 27, 4, 1200);
+        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odTurn(-180, 1, 300);
 
         robot.odometer.odSleep(1200);
@@ -118,6 +119,7 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
 
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odStrafe(90, 1, 42, 5, 4, 2000);
+        robot.odTurn(90, 1, 700);
 
     }
 }

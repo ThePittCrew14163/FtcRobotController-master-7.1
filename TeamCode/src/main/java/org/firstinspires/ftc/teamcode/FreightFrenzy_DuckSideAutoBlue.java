@@ -97,7 +97,7 @@ public class FreightFrenzy_DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup 
         robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-180, robot.armTurnstile);
         robot.odTurn(-90, 1, 900, 0.005, false);
 
-
+        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odStrafe(-90, 1, 113, 48, 4, 2000, 0.04, false);
         if (this.tse_position == TSE_Position.LEFT) {
             robot.odStrafe(-90, 0.4, 105, 48, 2, 1000);
