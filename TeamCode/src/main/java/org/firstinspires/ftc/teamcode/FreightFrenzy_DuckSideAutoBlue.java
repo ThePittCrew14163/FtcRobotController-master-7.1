@@ -42,7 +42,7 @@ public class FreightFrenzy_DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup 
             robot.intake.setPower(robot.INTAKE_ON_POWER/2);
             robot.odometer.odSleep(300);
 
-            robot.odStrafe(0, 1, 95, 16, 4, 1500, 0.05, false);
+            robot.odStrafe(0, 1, 95, 18, 4, 1500, 0.05, false);
 
         } else { // top tray
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*74/90, robot.armHinge);
