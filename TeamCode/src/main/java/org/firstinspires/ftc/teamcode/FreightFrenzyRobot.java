@@ -36,6 +36,7 @@ class FreightFrenzyRobot {
      */
     public Servo TSET_Extender1;
     public Servo TSET_Extender2;
+    public Servo TSET_Extender3;
     /**
      * detects if anything is in the intake hand
      */
@@ -99,6 +100,7 @@ class FreightFrenzyRobot {
         TSET_Pivot = hardwareMap.get(Servo.class, "TSET_Pivot");
         TSET_Extender1 = hardwareMap.get(Servo.class, "TSET_Extender1");
         TSET_Extender2 = hardwareMap.get(Servo.class, "TSET_Extender2");
+        TSET_Extender3 = hardwareMap.get(Servo.class, "TSET_Extender3");
 
         distanceSensor = hardwareMap.get(Rev2mDistanceSensor.class, "distanceSensor");
 

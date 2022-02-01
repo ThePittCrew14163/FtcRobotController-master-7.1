@@ -194,12 +194,15 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             if (gamepad2.a) {
                 robot.TSET_Extender1.setPosition(0);
                 robot.TSET_Extender2.setPosition(1);
+                robot.TSET_Extender3.setPosition(1);
             } else if (gamepad2.y) {
                 robot.TSET_Extender1.setPosition(1);
                 robot.TSET_Extender2.setPosition(0);
+                robot.TSET_Extender3.setPosition(0);
             } else {
                 robot.TSET_Extender1.setPosition(0.5);
                 robot.TSET_Extender2.setPosition(0.5);
+                robot.TSET_Extender3.setPosition(0.5);
             }
 
             telemetry.addData("Odo-given X", position.x);
