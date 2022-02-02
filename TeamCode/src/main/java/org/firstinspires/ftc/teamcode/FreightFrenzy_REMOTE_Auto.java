@@ -69,7 +69,7 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
             robot.odometer.odSleep(50);
         } else {
             robot.odStrafe(0, 1, 121, 9, 4, 3000);
-            robot.odStrafe(15, 0.42, 126, 6, 3, 1000, 0.04, true);
+            robot.odStrafe(15, 0.42, 126, 6, 3, 1000, 0.02, true);
         }
         robot.odStrafe(15, 0.35, 130, 5, 1.5, 1000, 0.015, true);
         robot.odometer.odSleep(100);
@@ -88,10 +88,10 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(-100, 1, 300);
         robot.odTurn(-150, 0.8, 500);
-        robot.odStrafe(-150, 0.8, 111, 16, 4, 1200, 0.04, false);
+        robot.odStrafe(-150, 0.8, 111, 15.5, 4, 1200, 0.03, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(-145, 0.4, 123, 15.5, 3, 3500);
+        robot.odStrafe(-147, 0.4, 123, 15, 3, 3500, 0.015, true);
 
         // score duck
         robot.odStrafe(-110, 1, 111, 18, 4, 1500, 0.05, false);
@@ -101,10 +101,13 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odStrafe(0, 1, 80, 18, 4, 1000, 0.04, false);
         robot.odStrafe(0, 0.42, 80, 24, 2, 1000);
+        robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS*68/90, robot.armHinge);
 
-        robot.odometer.odSleep(300);
+        robot.odometer.odSleep(200);
         robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.85);
-        robot.odometer.odSleep(1200);
+        robot.odometer.odSleep(1100);
+        robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS*74/90, robot.armHinge);
+        robot.odometer.odSleep(200);
         robot.odStrafe(0, 0.8, 81, 18, 4, 700, 0.03, false);
         robot.odTurn(60, 1, 450, 0.008, false);
 
@@ -112,7 +115,7 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
         if (this.tse_position == TSE_Position.LEFT) { // bottom tray
             robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
             robot.intake.setPower(robot.INTAKE_ON_POWER);
-            robot.odStrafe(70, 0.5, 62, 32, 3, 1500);
+            robot.odStrafe(70, 0.5, 61, 32, 3, 1500);
             robot.odometer.odSleep(100);
             robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS*72/90, robot.armHinge);
             robot.odStrafe(70, 0.8, 80, 23, 4, 1500, 0.03, false);
@@ -135,13 +138,15 @@ public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
 
         }
         // score 2nd duck
-        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
+        robot.intake.setPower(robot.INTAKE_ON_POWER/3);
         robot.odTurn(0, 1, 450);
         robot.odStrafe(0, 0.45, 79, 24, 2, 1000);
+        robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS*67/90, robot.armHinge);
 
         robot.odometer.odSleep(200);
         robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.85);
         robot.odometer.odSleep(1200);
+        robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS*72/90, robot.armHinge);
         robot.intake.setPower(robot.INTAKE_ON_POWER/4);
 
         // park
