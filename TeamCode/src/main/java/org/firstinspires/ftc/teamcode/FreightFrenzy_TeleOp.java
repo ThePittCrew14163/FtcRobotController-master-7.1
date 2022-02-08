@@ -8,10 +8,17 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.openftc.easyopencv.OpenCvCamera;
+import org.openftc.easyopencv.OpenCvCameraFactory;
+import org.openftc.easyopencv.OpenCvCameraRotation;
+import org.openftc.easyopencv.OpenCvInternalCamera;
 
 @TeleOp(name="Freight Frenzy Drive")
 public class FreightFrenzy_TeleOp extends LinearOpMode {
     public FreightFrenzyRobot robot = new FreightFrenzyRobot();
+
+    OpenCvInternalCamera phoneCam;
+    PhoneColorerPipeline pipeline;
 
     // Drivetrain variables
     double adjustAngle = 0;
@@ -45,6 +52,32 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(hardwareMap, this);
+
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
+        pipeline = new PhoneColorerPipeline();
+        phoneCam.setPipeline(pipeline);
+
+        // We set the viewport policy to optimized view so the preview doesn't appear 90 deg
+        // out when the RC activity is in portrait. We do our actual image processing assuming
+        // landscape orientation, though.
+        phoneCam.setViewportRenderingPolicy(OpenCvCamera.ViewportRenderingPolicy.OPTIMIZE_VIEW);
+
+        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            @Override
+            public void onOpened() {
+                // supported camera resolutions (for the gold E4) are: 1280x720, 960x720, 768x432, 720x480, 640x480, 320x240, 176x144
+                phoneCam.startStreaming(720, 480, OpenCvCameraRotation.SIDEWAYS_RIGHT);
+            }
+
+            @Override
+            public void onError(int i) {
+                // display given error because I don't know what else to do
+                telemetry.addData("Error integer", i);
+            }
+        });
+
+
 
         // Start robot at starting position (x, y) //
         robot.odometer.x = 0; // we don't use odometry in teleOp so it doesn't matter where the initial coords are
@@ -145,7 +178,10 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             } else if (gamepad1.left_trigger > 0.2) {
                 intakePower = gamepad1.left_trigger + 0.1;
             }
-            robot.intake.setPower(intakePower); // TODO: MAKE THE PHONE CHANGE COLOR WHEN THE INTAKE HOLDS FREIGHT
+            robot.intake.setPower(intakePower);
+
+            // phone turns from red to green when a freight is grabbed
+            pipeline.updatePhoneColor(robot.distanceSensor.getDistance(DistanceUnit.CM));
 
             if (gamepad1.dpad_left) {
                 robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY);
@@ -224,5 +260,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             /////////////////     UPDATE TELEMETRY     /////////////////
             telemetry.update();
         }
+        phoneCam.stopStreaming();
+        phoneCam.closeCameraDevice();
     }
 }

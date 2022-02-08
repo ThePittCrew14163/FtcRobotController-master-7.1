@@ -62,10 +62,10 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         while (!isStarted() && !isStopRequested()) {
             double angle = robot.odometer.getCurrentPosition().angle;
             tse_position = pipeline.tse_position;
+            telemetry.addData("TSE position", pipeline.tse_position);
             telemetry.addData("\nLeft cr", pipeline.leftTotal1);
             telemetry.addData("Center cr", pipeline.centerTotal1);
             telemetry.addData("Right cr", pipeline.rightTotal1);
-            telemetry.addData("TSE position", pipeline.tse_position);
             telemetry.addData("\nLeft yellow", pipeline.leftTotal0);
             telemetry.addData("Center yellow", pipeline.centerTotal0);
             telemetry.addData("Right yellow", pipeline.rightTotal0);
