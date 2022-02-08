@@ -9,6 +9,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcore.external.Func;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 /**
@@ -65,7 +67,13 @@ class FreightFrenzyRobot {
      * How many cm (give or take ~1cm) this.distanceSensor normally
      * detects from it to the bottom of the intake hand.
      */
-    public final double MIN_CM_FOR_NO_FREIGHT = 11.0;
+    public final double MIN_CM_FOR_NO_FREIGHT = 11.3;
+
+    /**
+     * index of zero is true if distanceSensor detected the robot holding freight last frame
+     * same for the rest of the array, but each index is one frame farther in the past
+     */
+    private boolean[] heldFreightLastFrames = {false,false,false,false};
 
     public final int DUCK_SPINNER_VELOCITY = 5000;
 
@@ -296,13 +304,33 @@ class FreightFrenzyRobot {
      *                   if false, the robot exits the function with the last set drive powers still holding
      */
     public void odStrafe(double heading, double speed, double x, double y, double buffer, int millis, double adjustPower, boolean breakAtEnd) {
+        odStrafe(heading, speed, x, y, buffer, millis, adjustPower, breakAtEnd, false);
+    }
+    /**
+     * Robot travels facing heading going at speed to the point x, y (x and y are in inches).
+     *
+     * @param heading Field-relative angle (in degrees) that the robot is to remain facing as it moves
+     * @param speed Power for motors (from 0-1)
+     * @param x X coordinate on the field where the robot is to go
+     * @param y Y coordinate on the field where the robot is to go
+     * @param buffer How close to (x, y) in inches the robot must get before the loop exits
+     * @param millis Maximum runtime this method is allowed (in milliseconds)
+     * @param adjustPower How harshly the robot should correct its heading when it veers off
+     *                    (0.02 is medium; 0.1 is pretty harsh; 0.004 is very little)
+     * @param breakAtEnd If true, the robot sets its drive motors all to zero power;
+     *                   if false, the robot exits the function with the last set drive powers still holding
+     * @param stopIfHoldingFreight Tracks to see if the intake possesses freight, and if so the loop exits.
+     */
+    public void odStrafe(double heading, double speed, double x, double y, double buffer, int millis, double adjustPower, boolean breakAtEnd, boolean stopIfHoldingFreight) {
 
         setDriveBaseRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         boolean offTarget = true;
         double start = (int)System.currentTimeMillis();
 
-        while (offTarget && !this.program.isStopRequested()) {
+        while (offTarget && !this.program.isStopRequested() &&
+                (!stopIfHoldingFreight || this.isHoldingFrieght())) {
+
             OdometryPosition position = odometer.getCurrentPosition();
             double angle = position.angle;
 
@@ -359,6 +387,22 @@ class FreightFrenzyRobot {
             wheel1.setPower(0);
             wheel3.setPower(0);
         }
+    }
+    private boolean isHoldingFrieght() {
+        for (int i = heldFreightLastFrames.length-1; i > 0; i--) {
+            heldFreightLastFrames[i] = heldFreightLastFrames[i-1];
+        }
+        heldFreightLastFrames[0] = (distanceSensor.getDistance(DistanceUnit.CM) < MIN_CM_FOR_NO_FREIGHT);
+
+        for (boolean f: heldFreightLastFrames) {
+            if (!f) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void resetFreightHoldingTacking() {
+        heldFreightLastFrames = new boolean[]{false, false, false, false};
     }
 
     public void motorTurnNoReset(double speed, int clicks, DcMotor motor) {
