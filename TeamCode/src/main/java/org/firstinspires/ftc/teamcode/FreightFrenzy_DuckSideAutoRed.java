@@ -13,7 +13,6 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
     @Override
     public void runRobotAuto() {
-        // TODO: replace blue-side code with actual red-side code
         // drive around TSE and score pre-loaded freight
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         if (this.tse_position == TSE_Position.LEFT) { // bottom tray

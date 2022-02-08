@@ -92,7 +92,7 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         // duck-side or warehouse side or other auto will run here
         runRobotAuto();
 
-        // make sure that robot pulls up those pods at the end // TODO: should this not be done until teleOp?
+        // make sure that robot pulls up those pods at the end
         robot.setOdoPodsUp();
     }
 

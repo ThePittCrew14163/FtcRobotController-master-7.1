@@ -46,8 +46,8 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
     public void runOpMode() {
         robot.init(hardwareMap, this);
 
-        // Start robot at starting position (x, y) // TODO: Decide where to start the robot coordinates in teleOp?
-        robot.odometer.x = 0;
+        // Start robot at starting position (x, y) //
+        robot.odometer.x = 0; // we don't use odometry in teleOp so it doesn't matter where the initial coords are
         robot.odometer.y = 0;
 
         // Set the adjusted robot heading
@@ -145,7 +145,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             } else if (gamepad1.left_trigger > 0.2) {
                 intakePower = gamepad1.left_trigger + 0.1;
             }
-            robot.intake.setPower(intakePower);
+            robot.intake.setPower(intakePower); // TODO: MAKE THE PHONE CHANGE COLOR WHEN THE INTAKE HOLDS FREIGHT
 
             if (gamepad1.dpad_left) {
                 robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY);

@@ -22,10 +22,6 @@ public class TSEFinderPipeline extends OpenCvPipeline {
     public double leftTotal2, centerTotal2, rightTotal2;
     public double leftTotal3, centerTotal3, rightTotal3;
 
-    public TSEFinderPipeline() {
-        // TODO: Do something in this constructor?
-    }
-
     @Override
     public final Mat processFrame(Mat input) {
         input.copyTo(workingMatrix);
