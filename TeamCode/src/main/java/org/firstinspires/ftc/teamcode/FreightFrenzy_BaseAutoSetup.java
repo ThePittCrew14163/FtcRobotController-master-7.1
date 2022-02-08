@@ -57,6 +57,7 @@ public class FreightFrenzy_BaseAutoSetup extends LinearOpMode {
         // Set servo initial positions
         robot.setOdoPodsDown();
         robot.setTSETtoInitPosition();
+        robot.intakeFlap.setPosition(1);
 
         while (!isStarted() && !isStopRequested()) {
             double angle = robot.odometer.getCurrentPosition().angle;

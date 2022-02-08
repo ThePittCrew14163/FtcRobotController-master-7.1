@@ -28,6 +28,7 @@ class FreightFrenzyRobot {
     public DcMotor armTurnstile;
     public DcMotor armHinge;
     public DcMotorEx duckSpinner;
+    public Servo intakeFlap;
     public Servo xOdoPodLift;
     public Servo yOdoPodLift;
     // TSET = Team Shipping Element Turret
@@ -78,7 +79,7 @@ class FreightFrenzyRobot {
     public final int DUCK_SPINNER_VELOCITY = 5000;
 
     public final double INTAKE_ON_POWER = 1;
-    public final double INTAKE_OUTPUT_POWER = -0.4;
+    public final double INTAKE_OUTPUT_POWER = -0.44;
     public final double INTAKE_SHOOT_POWER = -0.8;
 
     private LinearOpMode program; // the program using this module.  Robot requires access to the program to know when the program is trying to stop.
@@ -102,6 +103,7 @@ class FreightFrenzyRobot {
         armHinge = hardwareMap.get(DcMotor.class, "armHinge");
         duckSpinner = hardwareMap.get(DcMotorEx.class, "duckSpinner");
 
+        intakeFlap = hardwareMap.get(Servo.class, "intakeFlap");
         xOdoPodLift = hardwareMap.get(Servo.class, "xOdoPodLift");
         yOdoPodLift = hardwareMap.get(Servo.class, "yOdoPodLift");
         TSET_Turnstile = hardwareMap.get(Servo.class, "TSET_Turnstile");

@@ -67,6 +67,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
         robot.setOdoPodsUp();
         //robot.setOdoPodsDown();
         robot.setTSETtoInitPosition();
+        robot.intakeFlap.setPosition(1);
 
         robot.armTurnstile.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.armHinge.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -152,6 +153,12 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
                 robot.duckSpinner.setVelocity(robot.DUCK_SPINNER_VELOCITY);
             } else {
                 robot.duckSpinner.setVelocity(0);
+            }
+
+            if (gamepad1.y) {
+                robot.intakeFlap.setPosition(1);
+            } else if (gamepad1.a) {
+                robot.intakeFlap.setPosition(0);
             }
 
             // ##############################################################
