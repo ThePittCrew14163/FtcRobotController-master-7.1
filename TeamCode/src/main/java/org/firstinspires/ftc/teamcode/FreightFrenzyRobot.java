@@ -68,13 +68,13 @@ class FreightFrenzyRobot {
      * How many cm (give or take ~1cm) this.distanceSensor normally
      * detects from it to the bottom of the intake hand.
      */
-    public final double MIN_CM_FOR_NO_FREIGHT = 10.0;
+    public final double MIN_CM_FOR_NO_FREIGHT = 12.0;
 
     /**
      * index of zero is true if distanceSensor detected the robot holding freight last frame
      * same for the rest of the array, but each index is one frame farther in the past
      */
-    private boolean[] heldFreightLastFrames = {false,false,false,false};
+    private boolean[] heldFreightLastFrames = {false,false,false,false,false};
 
     public final int DUCK_SPINNER_VELOCITY = 8000;
 
@@ -331,7 +331,7 @@ class FreightFrenzyRobot {
         double start = (int)System.currentTimeMillis();
 
         while (offTarget && !this.program.isStopRequested() &&
-                (!stopIfHoldingFreight || this.isHoldingFrieght())) {
+                (!stopIfHoldingFreight || !this.isHoldingFrieght())) {
 
             OdometryPosition position = odometer.getCurrentPosition();
             double angle = position.angle;
