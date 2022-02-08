@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name="REMOTE (Duck side BLUE)")
+//@Autonomous(name="REMOTE (Duck side BLUE)")
 public class FreightFrenzy_REMOTE_Auto extends FreightFrenzy_BaseAutoSetup {
 
     @Override

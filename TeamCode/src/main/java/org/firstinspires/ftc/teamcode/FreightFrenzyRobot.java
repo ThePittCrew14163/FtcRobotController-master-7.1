@@ -68,7 +68,7 @@ class FreightFrenzyRobot {
      * How many cm (give or take ~1cm) this.distanceSensor normally
      * detects from it to the bottom of the intake hand.
      */
-    public final double MIN_CM_FOR_NO_FREIGHT = 11.3;
+    public final double MIN_CM_FOR_NO_FREIGHT = 10.0;
 
     /**
      * index of zero is true if distanceSensor detected the robot holding freight last frame
@@ -76,10 +76,10 @@ class FreightFrenzyRobot {
      */
     private boolean[] heldFreightLastFrames = {false,false,false,false};
 
-    public final int DUCK_SPINNER_VELOCITY = 5000;
+    public final int DUCK_SPINNER_VELOCITY = 8000;
 
     public final double INTAKE_ON_POWER = 1;
-    public final double INTAKE_OUTPUT_POWER = -0.44;
+    public final double INTAKE_OUTPUT_POWER = -0.43;
     public final double INTAKE_SHOOT_POWER = -0.8;
 
     private LinearOpMode program; // the program using this module.  Robot requires access to the program to know when the program is trying to stop.

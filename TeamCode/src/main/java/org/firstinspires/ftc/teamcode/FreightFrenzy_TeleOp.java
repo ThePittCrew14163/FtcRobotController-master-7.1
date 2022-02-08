@@ -159,6 +159,12 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
                 robot.intakeFlap.setPosition(1);
             } else if (gamepad1.a) {
                 robot.intakeFlap.setPosition(0);
+            } else {
+                if (robot.armHinge.getCurrentPosition() > robot.ARM_HINGE_UP_CLICKS*55/90) {
+                    robot.intakeFlap.setPosition(1);
+                } else if (robot.armHinge.getCurrentPosition() < robot.ARM_HINGE_UP_CLICKS*60/90) {
+                    robot.intakeFlap.setPosition(0);
+                }
             }
 
             // ##############################################################

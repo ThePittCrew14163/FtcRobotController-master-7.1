@@ -53,7 +53,7 @@ public class FreightFrenzy_DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup 
 
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*67/90, robot.armHinge);
             robot.odometer.odSleep(800);
-            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.8);
+            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*80/90, robot.armHinge);
             robot.odometer.odSleep(800);
@@ -77,7 +77,7 @@ public class FreightFrenzy_DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup 
         robot.odometer.odSleep(100);
 
         // spin carousel
-        robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY*0.9);
+        robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY*0.5);
         robot.odometer.odSleep(3200);
         robot.duckSpinner.setVelocity(0);
 

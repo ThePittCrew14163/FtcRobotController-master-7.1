@@ -75,7 +75,7 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odometer.odSleep(400);
 
         // spin carousel
-        robot.duckSpinner.setVelocity(robot.DUCK_SPINNER_VELOCITY*0.9);
+        robot.duckSpinner.setVelocity(robot.DUCK_SPINNER_VELOCITY*0.5);
         robot.odometer.odSleep(3200);
         robot.duckSpinner.setVelocity(0);
 
@@ -106,7 +106,7 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(90, 0.4, -102, 48, 2, 1000);
 
         robot.odometer.odSleep(500);
-        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.85);
+        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
         robot.odometer.odSleep(1200);
 
         // park

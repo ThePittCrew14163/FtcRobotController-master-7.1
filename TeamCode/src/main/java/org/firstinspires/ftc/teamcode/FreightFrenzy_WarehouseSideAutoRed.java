@@ -106,11 +106,11 @@ public class FreightFrenzy_WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSe
             robot.odStrafe(-100, 1, -68, 10, 4, 1000, 0.025, false);
             robot.odTurn(-140, 1, 400, 0.01, false);
             robot.intakeFlap.setPosition(0);
-            robot.odStrafe(-140, 1, -72, 22, 4, 1000, 0.025, false);
-            robot.odStrafe(-140, 0.4, -76, 30, 2, 1500);
+            robot.odStrafe(-140, 1, -73, 25, 4, 1000, 0.025, false);
+            robot.odStrafe(-140, 0.4, -77, 31, 1.5, 1500);
 
             robot.odometer.odSleep(300);
-            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*0.85);
+            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
 
             robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 55, robot.armTurnstile);
