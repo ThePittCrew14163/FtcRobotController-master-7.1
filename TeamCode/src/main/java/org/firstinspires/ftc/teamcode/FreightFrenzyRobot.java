@@ -117,7 +117,6 @@ class FreightFrenzyRobot {
 
         wheel4.setDirection(DcMotorSimple.Direction.REVERSE);
         wheel2.setDirection(DcMotorSimple.Direction.REVERSE);
-        wheel1.setDirection(DcMotorSimple.Direction.REVERSE);
 
         armTurnstile.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armTurnstile.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -134,7 +133,7 @@ class FreightFrenzyRobot {
 
         odometer = new Odometer(0, 0, 0);
         odometer.init(imu, wheel1, wheel2);
-        odometer.READ_Y_REVERSE = false;
+        odometer.READ_Y_REVERSE = true;
         odometer.READ_X_REVERSE = true;
 
         distanceSensor.initialize(); // TODO: Learn if and when initialization is necessary
