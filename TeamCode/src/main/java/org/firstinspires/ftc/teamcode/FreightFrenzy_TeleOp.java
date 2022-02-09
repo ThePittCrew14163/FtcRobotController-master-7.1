@@ -182,6 +182,9 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
 
             // phone turns from red to green when a freight is grabbed
             pipeline.updatePhoneColor(robot.distanceSensor.getDistance(DistanceUnit.CM));
+            telemetry.addData("phoneColor 0", pipeline.phoneColor.val[0]);
+            telemetry.addData("phoneColor 1", pipeline.phoneColor.val[1]);
+            telemetry.addData("phoneColor 2", pipeline.phoneColor.val[2]);
 
             if (gamepad1.dpad_left) {
                 robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY);
@@ -207,7 +210,12 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             //  ######    GAMEPAD2 (B) CONTROLS (arm & TSE turret)    ######
 
             // Controls for the arm
-            robot.armHinge.setPower(gamepad2.left_stick_y);
+            if (robot.armHinge.getCurrentPosition() < robot.ARM_HINGE_UP_CLICKS*21/90 &&
+                robot.armHinge.getCurrentPosition() > robot.ARM_HINGE_UP_CLICKS*75/90) {
+                robot.armHinge.setPower(gamepad2.left_stick_y-0.02);
+            } else {
+                robot.armHinge.setPower(gamepad2.left_stick_y);
+            }
             robot.armTurnstile.setPower(-gamepad2.right_stick_x/1.4);
             telemetry.addData("clicks for arm turnstile", robot.armTurnstile.getCurrentPosition());
             telemetry.addData("clicks for arm hinge", robot.armHinge.getCurrentPosition());

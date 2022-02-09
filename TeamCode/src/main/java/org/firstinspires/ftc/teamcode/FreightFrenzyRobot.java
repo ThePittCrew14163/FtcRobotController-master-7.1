@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
@@ -68,18 +67,18 @@ class FreightFrenzyRobot {
      * How many cm (give or take ~1cm) this.distanceSensor normally
      * detects from it to the bottom of the intake hand.
      */
-    public final double MIN_CM_FOR_NO_FREIGHT = 11.5;
+    public final double MIN_CM_FOR_NO_FREIGHT = 10.5;
 
     /**
      * index of zero is true if distanceSensor detected the robot holding freight last frame
      * same for the rest of the array, but each index is one frame farther in the past
      */
-    private boolean[] heldFreightLastFrames = {false,false,false,false,false};
+    private boolean[] heldFreightLastFrames = {false,false,false,false,false,false,false,false,false};
 
     public final int DUCK_SPINNER_VELOCITY = 8000;
 
     public final double INTAKE_ON_POWER = 1;
-    public final double INTAKE_OUTPUT_POWER = -0.43;
+    public final double INTAKE_OUTPUT_POWER = -0.48;
     public final double INTAKE_SHOOT_POWER = -0.8;
 
     private LinearOpMode program; // the program using this module.  Robot requires access to the program to know when the program is trying to stop.
@@ -118,6 +117,7 @@ class FreightFrenzyRobot {
 
         wheel4.setDirection(DcMotorSimple.Direction.REVERSE);
         wheel2.setDirection(DcMotorSimple.Direction.REVERSE);
+        wheel1.setDirection(DcMotorSimple.Direction.REVERSE);
 
         armTurnstile.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armTurnstile.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -134,7 +134,7 @@ class FreightFrenzyRobot {
 
         odometer = new Odometer(0, 0, 0);
         odometer.init(imu, wheel1, wheel2);
-        odometer.READ_Y_REVERSE = true;
+        odometer.READ_Y_REVERSE = false;
         odometer.READ_X_REVERSE = true;
 
         distanceSensor.initialize(); // TODO: Learn if and when initialization is necessary
@@ -331,7 +331,7 @@ class FreightFrenzyRobot {
         double start = (int)System.currentTimeMillis();
 
         while (offTarget && !this.program.isStopRequested() &&
-                (!stopIfHoldingFreight || !this.isHoldingFrieght())) {
+                (!stopIfHoldingFreight || !this.isHoldingFreight())) {
 
             OdometryPosition position = odometer.getCurrentPosition();
             double angle = position.angle;
@@ -372,6 +372,7 @@ class FreightFrenzyRobot {
             if (start+millis < (int)System.currentTimeMillis()) {
                 break;
             }
+            this.program.telemetry.addData("distance (CM)", distanceSensor.getDistance(DistanceUnit.CM));
             this.program.telemetry.addData("x", position.x);
             this.program.telemetry.addData("y", position.y);
             this.program.telemetry.addData("xdis", xdis);
@@ -390,7 +391,7 @@ class FreightFrenzyRobot {
             wheel3.setPower(0);
         }
     }
-    private boolean isHoldingFrieght() {
+    public boolean isHoldingFreight() {
         for (int i = heldFreightLastFrames.length-1; i > 0; i--) {
             heldFreightLastFrames[i] = heldFreightLastFrames[i-1];
         }
@@ -404,7 +405,7 @@ class FreightFrenzyRobot {
         return true;
     }
     public void resetFreightHoldingTacking() {
-        heldFreightLastFrames = new boolean[]{false, false, false, false};
+        heldFreightLastFrames = new boolean[]{false,false,false,false,false,false,false,false,false};
     }
 
     public void motorTurnNoReset(double speed, int clicks, DcMotor motor) {
