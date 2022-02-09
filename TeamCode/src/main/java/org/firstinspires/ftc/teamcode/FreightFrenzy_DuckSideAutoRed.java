@@ -60,7 +60,7 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         }
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.55, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-20, robot.armTurnstile);
-        robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*105/90, robot.armHinge);
+        robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*100/90, robot.armHinge);
         if (this.tse_position == TSE_Position.RIGHT) {
             robot.odStrafe(0, 1, -124, 19, 4, 3000);
         } else if (this.tse_position == TSE_Position.CENTER) {
@@ -74,21 +74,21 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odometer.odSleep(400);
 
         // spin carousel
-        robot.duckSpinner.setVelocity(1500);
+        robot.duckSpinner.setVelocity(1700);
+        robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
+        robot.motorTurnNoReset(0.5, 0, robot.armHinge);
         robot.odometer.odSleep(3200);
         robot.duckSpinner.setVelocity(0);
 
         // pick up duck TODO: make duck-finding vision software?
-        robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*60/90, robot.armHinge);
-        robot.odStrafe(-100, 0.8, -115, 13, 4, 1600, 0.02, false);
-        robot.motorTurnNoReset(0.4, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
+        robot.odStrafe(-100, 0.8, -110, 13, 4, 1600, 0.02, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(150, 0.8, 1100);
-        robot.odStrafe(150, 0.7, -113, 15, 4, 1200, 0.02, false);
+        robot.odStrafe(150, 0.7, -109, 15, 4, 1200, 0.02, false);
 
         // TODO: use distance sensor here?
         robot.odStrafe(145, 0.38, -122, 14, 3, 4000);
+        robot.odTurn(70, 0.7, 1100);
 
         // score duck
         robot.odStrafe(150, 0.7, -123, 24, 4, 1500, 0.025, false);
@@ -102,19 +102,19 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
         robot.odStrafe(90, 1, -113, 48, 4, 2000, 0.02, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER/2);
-        robot.odStrafe(90, 0.4, -102, 48, 2, 1000);
+        robot.odStrafe(90, 0.4, -103, 48, 2, 1000);
 
-        robot.odometer.odSleep(500);
-        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
-        robot.odometer.odSleep(1200);
+        robot.odometer.odSleep(400);
+        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*1.3);
+        robot.odometer.odSleep(1400);
 
         // park
         robot.motorTurnNoReset(1, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*60, robot.armTurnstile);
         robot.intakeFlap.setPosition(1);
-        robot.odStrafe(90, 1, -114, 51, 4, 2000, 0.02, false);
+        robot.odStrafe(90, 1, -114, 52, 4, 2000, 0.02, false);
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*45/90, robot.armHinge);
-        robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
+        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*5, robot.armTurnstile);
         robot.odTurn(180, 1, 600, 0.008, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*3/90, robot.armHinge);
         robot.odTurn(-90, 1, 800, 0.008, true);
