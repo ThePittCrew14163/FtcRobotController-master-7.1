@@ -182,9 +182,8 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
 
             // phone turns from red to green when a freight is grabbed
             pipeline.updatePhoneColor(robot.distanceSensor.getDistance(DistanceUnit.CM));
-            telemetry.addData("phoneColor 0", pipeline.phoneColor.val[0]);
-            telemetry.addData("phoneColor 1", pipeline.phoneColor.val[1]);
-            telemetry.addData("phoneColor 2", pipeline.phoneColor.val[2]);
+            telemetry.addData("phoneColor R", pipeline.phoneColor.val[0]);
+            telemetry.addData("phoneColor G", pipeline.phoneColor.val[1]);
 
             if (gamepad1.dpad_left) {
                 robot.duckSpinner.setVelocity(-robot.DUCK_SPINNER_VELOCITY);
@@ -199,7 +198,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             } else if (gamepad1.a) {
                 robot.intakeFlap.setPosition(0);
             } else {
-                if (robot.armHinge.getCurrentPosition() > robot.ARM_HINGE_UP_CLICKS*55/90) {
+                if (robot.armHinge.getCurrentPosition() > robot.ARM_HINGE_UP_CLICKS*59/90) {
                     robot.intakeFlap.setPosition(1);
                 } else if (robot.armHinge.getCurrentPosition() < robot.ARM_HINGE_UP_CLICKS*60/90) {
                     robot.intakeFlap.setPosition(0);
@@ -210,7 +209,7 @@ public class FreightFrenzy_TeleOp extends LinearOpMode {
             //  ######    GAMEPAD2 (B) CONTROLS (arm & TSE turret)    ######
 
             // Controls for the arm
-            if (robot.armHinge.getCurrentPosition() < robot.ARM_HINGE_UP_CLICKS*21/90 &&
+            if (robot.armHinge.getCurrentPosition() < robot.ARM_HINGE_UP_CLICKS*15/90 &&
                 robot.armHinge.getCurrentPosition() > robot.ARM_HINGE_UP_CLICKS*75/90) {
                 robot.armHinge.setPower(gamepad2.left_stick_y-0.02);
             } else {
