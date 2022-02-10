@@ -13,11 +13,11 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
     public void AfterScorePreloadAndDeliver() {
 
         // collect other team's preload, which should be left against the wall behind their robot
-        robot.odStrafe(23, 1, 95, 8, 4, 1000, 0.03, false);
+        robot.odStrafe(23, 1, 93, 8, 4, 1000, 0.03, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(155, 1, 800);
-        robot.odStrafe(155, 0.8, 92, 15.5, 4, 1100, 0.02, false);
-        robot.odStrafe(155, 0.48, 61, 17, 4, 5000, 0.02, false);
+        robot.odStrafe(155, 0.8, 91, 15.5, 4, 1100, 0.02, false);
+        robot.odStrafe(155, 0.48, 60, 17, 4, 5000, 0.02, false);
         robot.odTurn(70, 0.75, 1200);
 
         // score 2nd preload (doesn't get bonus but does earn 6 points and then another 6 in teleOp)
@@ -26,7 +26,7 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
         robot.intake.setPower(robot.INTAKE_ON_POWER / 3);
         robot.intakeFlap.setPosition(0);
         robot.odTurn(0, 1, 450);
-        robot.odStrafe(0, 0.45, 79, 23, 1.5, 1000);
+        robot.odStrafe(0, 0.45, 80, 23, 1.5, 1000);
         robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS * 68 / 90, robot.armHinge);
 
         robot.odometer.odSleep(200);
@@ -45,7 +45,8 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
         robot.odStrafe(95, 1, 67, 3, 4, 1000);
 
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odStrafe(92, 1, 39, 3, 4, 4000);
+        robot.odStrafe(92, 1, 45, 3, 6, 2000, 0.03, false);
+        robot.odStrafe(92, 0.5, 39, 3, 3, 2000);
         robot.odTurn(90, 1, 700);
     }
 }
