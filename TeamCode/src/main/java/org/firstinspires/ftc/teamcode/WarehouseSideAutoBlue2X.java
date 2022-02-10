@@ -3,11 +3,13 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 /**
+ * DEPRECATED BECAUSE THIS ISN'T LEGAL
  * After scoring the preload in the alliance hub,
  * this auto collects other team's preload, which should be left against the wall behind their robot,
  * and it is assumed that they've parked in the loading zone.
  */
-@Autonomous(name="2X Warehouse side BLUE", group = "pick up alliance partner's preload")
+@Deprecated
+//@Autonomous(name="2X Warehouse side BLUE", group = "pick up alliance partner's preload")
 public class WarehouseSideAutoBlue2X extends WarehouseSideAutoBlue {
     @Override
     public void AfterScorePreload() {
