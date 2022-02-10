@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name="RED Duck side")
-public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
+@Autonomous(name="RED Duck side", group = "normal duck autos")
+public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
     @Override
     public void initOdometryCoordinates() {
@@ -74,16 +74,21 @@ public class FreightFrenzy_DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odometer.odSleep(400);
 
         // spin carousel
-        robot.duckSpinner.setVelocity(1700);
+        robot.duckSpinner.setVelocity(1750);
         robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
         robot.motorTurnNoReset(0.5, 0, robot.armHinge);
         robot.odometer.odSleep(3200);
         robot.duckSpinner.setVelocity(0);
 
+
+        this.AfterScorePreloadAndDeliver();
+    }
+    public void AfterScorePreloadAndDeliver() {
+
         // pick up duck TODO: make duck-finding vision software?
-        robot.odStrafe(-100, 0.8, -110, 13, 4, 1600, 0.02, false);
+        robot.odStrafe(-100, 0.8, -110, 13, 4, 1300, 0.02, true);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odTurn(150, 0.8, 1100);
+        robot.odTurn(150, 1, 1100);
         robot.odStrafe(150, 0.7, -109, 15, 4, 1200, 0.02, false);
 
         // TODO: use distance sensor here?

@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Warehouse side BLUE")
-public class FreightFrenzy_WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
+@Autonomous(name = "Warehouse side BLUE", group = "normal warehouse autos")
+public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
     long startTimeInMs;
 
     @Override
@@ -64,8 +64,12 @@ public class FreightFrenzy_WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoS
             robot.odStrafe(140, 1, 73, 14, 4, 1100, 0.04, false);
 
         }
-
         robot.intake.setPower(0);
+
+        this.AfterScorePreload();
+    }
+    public void AfterScorePreload() {
+
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 30 / 90, robot.armHinge);
         if (this.tse_position == TSE_Position.RIGHT) {
             robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -45, robot.armTurnstile);
@@ -126,7 +130,7 @@ public class FreightFrenzy_WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoS
             robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -35, robot.armTurnstile);
             robot.odTurn(90, 1, 600, 0.015, false);
             robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
-            robot.odStrafe(91, 1, 68, 2, 3, 950);
+            robot.odStrafe(92, 1, 68, 2, 3, 950);
             robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 3 / 90, robot.armHinge);
 
             c+=2;
