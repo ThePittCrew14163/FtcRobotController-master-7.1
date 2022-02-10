@@ -52,7 +52,7 @@ public class DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             robot.intakeFlap.setPosition(0);
             robot.odStrafe(0, 0.4, 98, 32, 1.5, 1500);
 
-            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 68 / 90, robot.armHinge);
+            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 67 / 90, robot.armHinge);
             robot.odometer.odSleep(800);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
@@ -111,11 +111,11 @@ public class DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
 
         robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odStrafe(-90, 1, 113, 48, 4, 2000, 0.02, false);
-        robot.odStrafe(-90, 0.4, 103, 48, 2, 1000);
+        robot.odStrafe(-90, 0.4, 104, 48, 1.5, 1000);
 
-        robot.motorTurnNoReset(0.4, robot.ARM_HINGE_UP_CLICKS*67/90, robot.armHinge);
+        robot.motorTurnNoReset(0.45, robot.ARM_HINGE_UP_CLICKS*65/90, robot.armHinge);
         robot.odometer.odSleep(800);
-        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*1.3);
+        robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*1.2);
         robot.odometer.odSleep(1300);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
         robot.odometer.odSleep(800);
@@ -130,7 +130,7 @@ public class DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
         robot.odTurn(-180, 1, 700, 0.008, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*3/90, robot.armHinge);
         robot.odTurn(90, 1, 800, 0.008, true);
-        robot.odStrafe(90, 0.7, 132, 40, 4, 1300, 0.025, false);
+        robot.odStrafe(90, 0.8, 132, 40, 4, 1300, 0.025, false);
         robot.odStrafe(90, 0.5, 140, 34, 2, 1300, 0.03, true);
 
     }
