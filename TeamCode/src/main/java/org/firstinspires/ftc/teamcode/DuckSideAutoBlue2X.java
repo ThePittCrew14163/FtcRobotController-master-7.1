@@ -16,8 +16,8 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
         robot.odStrafe(23, 1, 110, 8, 4, 1000, 0.03, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(150, 1, 800);
-        robot.odStrafe(150, 0.8, 107, 15.5, 4, 1100, 0.02, false);
-        robot.odStrafe(145, 0.46, 67, 16, 4, 5000, 0.02, false);
+        robot.odStrafe(150, 0.8, 107, 15, 4, 1100, 0.02, false);
+        robot.odStrafe(145, 0.48, 63, 16.5, 4, 5000, 0.02, false);
         robot.odTurn(70, 0.75, 1200);
 
         // score 2nd preload
@@ -27,7 +27,7 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
             robot.intake.setPower(robot.INTAKE_ON_POWER / 3);
             robot.intakeFlap.setPosition(0);
             robot.odTurn(0, 1, 450);
-            robot.odStrafe(0, 0.45, 79, 21, 2, 1000);
+            robot.odStrafe(0, 0.45, 79, 21, 1.5, 1000);
 
             robot.odometer.odSleep(200);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER * 1.3);
@@ -39,7 +39,7 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
             robot.intake.setPower(robot.INTAKE_ON_POWER / 3);
             robot.intakeFlap.setPosition(0);
             robot.odTurn(0, 1, 450);
-            robot.odStrafe(0, 0.45, 79, 22, 2, 1000);
+            robot.odStrafe(0, 0.45, 79, 22, 1.5, 1000);
 
             robot.odometer.odSleep(200);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER * 1.1);
@@ -51,7 +51,7 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
             robot.intake.setPower(robot.INTAKE_ON_POWER / 3);
             robot.intakeFlap.setPosition(0);
             robot.odTurn(0, 1, 450);
-            robot.odStrafe(0, 0.45, 79, 24, 2, 1000);
+            robot.odStrafe(0, 0.45, 79, 23, 1.5, 1000);
             robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS * 68 / 90, robot.armHinge);
 
             robot.odometer.odSleep(200);

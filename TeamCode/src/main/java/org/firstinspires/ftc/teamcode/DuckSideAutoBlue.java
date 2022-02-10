@@ -123,7 +123,7 @@ public class DuckSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(-90, 1, 114, 52, 4, 2000, 0.02, false);
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*50/90, robot.armHinge);
-        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-5, robot.armTurnstile);
+        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-2, robot.armTurnstile);
         robot.odTurn(-180, 1, 700, 0.008, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*3/90, robot.armHinge);
         robot.odTurn(90, 1, 800, 0.008, true);
