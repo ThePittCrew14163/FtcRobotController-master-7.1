@@ -65,6 +65,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.intake.setPower(0);
 
         this.AfterScorePreload();
+        this.DoCycles();
     }
     public void AfterScorePreload() {
 
@@ -78,8 +79,10 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         if (this.tse_position == TSE_Position.RIGHT) {
             robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
         }
+    }
+    public void DoCycles() {
         robot.odStrafe(-90, 1, -68, 2, 3, 1100);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 5 / 90, robot.armHinge);
+        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS * 3 / 90, robot.armHinge);
 
         //while time left > 1 cycle time, cycle
         int c = 0;
