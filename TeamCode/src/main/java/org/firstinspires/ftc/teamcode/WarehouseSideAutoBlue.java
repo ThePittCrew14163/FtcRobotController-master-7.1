@@ -48,7 +48,7 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
         } else { // top tray
             robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 75 / 90, robot.armHinge);
             robot.odStrafe(20, 1, 67, 10, 4, 1200, 0.025, false);
-            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -165, robot.armTurnstile);
+            robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * -160, robot.armTurnstile);
             robot.odTurn(140, 1, 1000);
             robot.intakeFlap.setPosition(0);
             robot.odStrafe(140, 1, 75, 23, 4, 1000, 0.025, true);

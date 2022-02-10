@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
  * this auto collects other team's preload, which should be left against the wall behind their robot,
  * and it is assumed that they've parked in the loading zone.
  */
-@Autonomous(name="2X Duck side BLUE", group = "pick up alliance partner's preload")
-class WarehouseSideAutoBlue2X extends WarehouseSideAutoBlue {
+@Autonomous(name="2X Warehouse side BLUE", group = "pick up alliance partner's preload")
+public class WarehouseSideAutoBlue2X extends WarehouseSideAutoBlue {
     @Override
     public void AfterScorePreload() {
 
@@ -17,9 +17,10 @@ class WarehouseSideAutoBlue2X extends WarehouseSideAutoBlue {
             robot.motorTurnNoReset(0.6, 0, robot.armTurnstile);
             robot.odTurn(0, 1, 900);
         }
-        robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 3 / 90, robot.armHinge);
+        robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS * 3 / 90, robot.armHinge);
+        robot.odStrafe(0, 0.6, 68, 9, 4, 700, 0.02, false);
+        robot.odometer.odSleep(500);
 
-        robot.odStrafe(0, 0.6, 68, 17, 4, 700, 0.02, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(-150, 1, 800);
         robot.odStrafe(-150, 0.8, 67, 15.5, 4, 1100, 0.02, false);
@@ -67,5 +68,8 @@ class WarehouseSideAutoBlue2X extends WarehouseSideAutoBlue {
         }
         robot.intake.setPower(robot.INTAKE_ON_POWER/3.5);
         robot.intakeFlap.setPosition(1);
+
+        robot.odStrafe(0, 0.8, 76, 12, 4, 1000, 0.02, false);
+        robot.odTurn(90, 1, 800);
     }
 }

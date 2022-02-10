@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
  * and it is assumed that they've parked in the warehouse so we can park there too.
  */
 @Autonomous(name="2X Duck side BLUE", group = "pick up alliance partner's preload")
-class DuckSideAutoBlue2X extends DuckSideAutoBlue {
+public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
     @Override
     public void AfterScorePreloadAndDeliver() {
 
