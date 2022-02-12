@@ -16,8 +16,8 @@ public class DuckSideAutoRed2X extends DuckSideAutoRed {
         robot.odStrafe(-110, 1, -93, 8, 4, 1000, 0.03, false);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odTurn(-155, 1, 800);
-        robot.odStrafe(-155, 0.8, -91, 15.5, 4, 1100, 0.02, false);
-        robot.odStrafe(-155, 0.48, -60, 17, 4, 5000, 0.02, false);
+        robot.odStrafe(-155, 0.8, -91, 15, 4, 1100, 0.02, false);
+        robot.odStrafe(-155, 0.48, -60, 16, 4, 5000, 0.02, false);
         robot.odTurn(-70, 0.75, 1200);
 
         // score 2nd preload (doesn't get bonus but does earn 6 points and then another 6 in teleOp)

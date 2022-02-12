@@ -30,14 +30,15 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
         } else if (this.tse_position == TSE_Position.CENTER) { // bottom tray
             robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*49/90, robot.armHinge);
-            robot.odStrafe(0, 1, -94, 16, 4, 1200, 0.025, false);
-            robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-34, robot.armTurnstile);
-            robot.odStrafe(0, 0.4, -94, 25, 2, 1500);
+            robot.odStrafe(0, 1, -98, 19, 4, 1200, 0.025, true);
+            robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-32, robot.armTurnstile);
+            robot.odometer.odSleep(60);
+            robot.odStrafe(0, 0.4, -96, 23, 1.5, 1000);
 
-            robot.odometer.odSleep(300);
+            robot.odometer.odSleep(200);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
-            robot.intake.setPower(robot.INTAKE_ON_POWER/3.5);
+            robot.intake.setPower(robot.INTAKE_ON_POWER/3);
             robot.odometer.odSleep(300);
 
             robot.odStrafe(0, 1, -95, 18, 4, 1500, 0.025, false);
@@ -67,9 +68,9 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         if (this.tse_position == TSE_Position.RIGHT) {
             robot.odStrafe(0, 1, -124, 19, 4, 3000);
         } else if (this.tse_position == TSE_Position.CENTER) {
-            robot.odStrafe(0, 1, -121, 12, 4, 3000);
+            robot.odStrafe(0, 1, -121, 14, 4, 3000);
         } else {
-            robot.odStrafe(-40, 1, -123, 12, 4, 3000);
+            robot.odStrafe(-40, 1, -123, 13, 4, 3000);
         }
         robot.odTurn(-100, 1, 800, 0.025, false);
         robot.odStrafe(-100, 0.4, -133, 12, 3, 1000, 0.015, false);
@@ -95,7 +96,7 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(150, 0.7, -109, 15, 4, 1200, 0.02, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(145, 0.4, -124, 14, 3, 4000);
+        robot.odStrafe(145, 0.4, -124, 15, 3, 4000);
         robot.odTurn(60, 0.7, 1200);
 
         // score duck

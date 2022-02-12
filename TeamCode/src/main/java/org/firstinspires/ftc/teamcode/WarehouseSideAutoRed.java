@@ -21,12 +21,13 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         // drive around TSE and score pre-loaded freight
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         if (this.tse_position == TSE_Position.LEFT) { // bottom tray
-            robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS * 21 / 90, robot.armHinge);
-            robot.odStrafe(0, 1, -77, 18, 4, 1200, 0.025, false);
-            robot.odStrafe(5, 0.4, -78, 25, 2, 1500);
+            robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS * 23 / 90, robot.armHinge);
+            robot.odStrafe(12, 1, -76, 17, 4, 1200, 0.025, true);
+            robot.odometer.odSleep(60);
+            robot.odStrafe(15, 0.4, -77, 22, 1.5, 1100);
 
             robot.odometer.odSleep(300);
-            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
+            robot.intake.setPower(robot.INTAKE_OUTPUT_POWER*1.3);
             robot.odometer.odSleep(1200);
             robot.intake.setPower(robot.INTAKE_ON_POWER/3);
 
@@ -34,8 +35,9 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
         } else if (this.tse_position == TSE_Position.CENTER) { // bottom tray
             robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS * 49 / 90, robot.armHinge);
-            robot.odStrafe(35, 1, -65, 15, 4, 1200, 0.025, false);
-            robot.odStrafe(35, 0.4, -68, 25, 2, 1500);
+            robot.odStrafe(35, 1, -65, 19, 4, 1200, 0.025, true);
+            robot.odometer.odSleep(60);
+            robot.odStrafe(35, 0.4, -68, 25, 2, 1100);
 
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
@@ -50,8 +52,9 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 150, robot.armTurnstile);
             robot.odTurn(-140, 1, 1000);
             robot.intakeFlap.setPosition(0);
-            robot.odStrafe(-140, 1, -75, 24, 4, 1000, 0.025, false);
-            robot.odStrafe(-140, 0.4, -76, 27, 2, 1500);
+            robot.odStrafe(-140, 1, -75, 24, 4, 1000, 0.025, true);
+            robot.odometer.odSleep(60);
+            robot.odStrafe(-140, 0.4, -76, 27, 2, 1100);
 
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
@@ -109,13 +112,13 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-90, 1, -65, 5, 3, 1100, 0.025, false);
 
             // score freight
-            robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * (168+c), robot.armTurnstile);
+            robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * (160+c), robot.armTurnstile);
             robot.odStrafe(-100, 1, -70, 10, 5, 700, 0.025, false);
             robot.odTurn(-140, 1, 400, 0.015, false);
             robot.intakeFlap.setPosition(0);
-            robot.odStrafe(-140, 1, -77, 26, 5, 1000, 0.025, true);
+            robot.odStrafe(-140, 1, -75, 26, 5, 1000, 0.025, true);
             robot.odometer.odSleep(50);
-            robot.odStrafe(-140, 0.45, -79, 30, 1.5, 1000);
+            robot.odStrafe(-140, 0.45, -77, 30, 1.5, 1000);
 
             robot.odometer.odSleep(100);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
