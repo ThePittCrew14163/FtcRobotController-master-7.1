@@ -95,11 +95,11 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             robot.resetFreightHoldingTacking();
             robot.intake.setPower(robot.INTAKE_ON_POWER);
             robot.odStrafe(90, 1, 46, 5, 3, 800, 0.025, false);
-            robot.odStrafe(115, 0.8, 38, 8, 4, 900, 0.03, false, true);
-            robot.odStrafe(50, 0.8, 33, 8, 3, 1300, 0.015, false, true);
+            robot.odStrafe(120, 0.8, 26, 8, 4, 900, 0.02, false, true);
+            robot.odStrafe(50, 0.8, 33, 9, 3, 1300, 0.015, false, true);
             if (!robot.isHoldingFreight()) {
-                robot.odStrafe(150, 0.8, 28, 4, 3, 1300, 0.07, false, true);
-                robot.odStrafe(95, 0.8, 36, 8, 3, 1000, 0.02, false);
+                robot.odStrafe(150, 0.8, 30, 4, 3, 1300, 0.07, false, true);
+                robot.odStrafe(95, 0.8, 38, 12, 3, 1000, 0.02, false);
             }
             
             if (System.currentTimeMillis() - startTimeInMs > 22000) {

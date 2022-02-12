@@ -75,7 +75,7 @@ class FreightFrenzyRobot {
      */
     private boolean[] heldFreightLastFrames = {false,false,false,false,false,false,false,false,false};
 
-    public final int DUCK_SPINNER_VELOCITY = 8000;
+    public final int DUCK_SPINNER_VELOCITY = 12000;
 
     public final double INTAKE_ON_POWER = 1;
     public final double INTAKE_OUTPUT_POWER = -0.48;
