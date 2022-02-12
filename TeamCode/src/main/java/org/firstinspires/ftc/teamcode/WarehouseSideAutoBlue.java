@@ -143,5 +143,6 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
         robot.intake.setPower(robot.INTAKE_ON_POWER);
         robot.odStrafe(90, 1, 42, 5, 6, 700, 0.025, false);
         robot.odStrafe(90, 0.5, 36, 5, 3, 500, 0.025, false);
+        robot.odTurn(90, 0.9, 900);
     }
 }

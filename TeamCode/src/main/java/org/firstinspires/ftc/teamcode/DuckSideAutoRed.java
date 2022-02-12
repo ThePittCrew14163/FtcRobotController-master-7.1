@@ -37,7 +37,7 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odometer.odSleep(300);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
-            robot.intake.setPower(robot.INTAKE_ON_POWER/2);
+            robot.intake.setPower(robot.INTAKE_ON_POWER/3.5);
             robot.odometer.odSleep(300);
 
             robot.odStrafe(0, 1, -95, 18, 4, 1500, 0.025, false);

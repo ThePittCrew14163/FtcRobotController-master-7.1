@@ -22,11 +22,11 @@ public class DuckSideAutoRed2X extends DuckSideAutoRed {
 
         // score 2nd preload (doesn't get bonus but does earn 6 points and then another 6 in teleOp)
         robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS * 72 / 90, robot.armHinge);
-        robot.odStrafe(-90, 1, -83, 18, 4, 1100, 0.02, true);
+        robot.odStrafe(-90, 1, -84, 18, 4, 1100, 0.02, true);
         robot.intake.setPower(robot.INTAKE_ON_POWER / 3);
         robot.intakeFlap.setPosition(0);
         robot.odTurn(0, 1, 450);
-        robot.odStrafe(0, 0.45, -80, 23, 1.5, 1000);
+        robot.odStrafe(0, 0.45, -82, 23, 1.5, 1000);
         robot.motorTurnNoReset(1, robot.ARM_HINGE_UP_CLICKS * 68 / 90, robot.armHinge);
 
         robot.odometer.odSleep(200);
