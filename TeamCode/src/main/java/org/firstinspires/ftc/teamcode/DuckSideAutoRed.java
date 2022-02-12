@@ -60,21 +60,22 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
             robot.odStrafe(0, 1, -117, 42, 4, 1500, 0.025, false);
             robot.intakeFlap.setPosition(1);
+            robot.odometer.odSleep(100);
 
         }
         robot.intake.setPower(0);
         robot.motorTurnNoReset(0.55, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-20, robot.armTurnstile);
         robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*100/90, robot.armHinge);
         if (this.tse_position == TSE_Position.RIGHT) {
-            robot.odStrafe(0, 1, -124, 19, 4, 3000);
+            robot.odStrafe(0, 0.95, -124, 19, 5, 3000);
         } else if (this.tse_position == TSE_Position.CENTER) {
             robot.odStrafe(0, 1, -121, 14, 4, 3000);
         } else {
             robot.odStrafe(-40, 1, -123, 13, 4, 3000);
         }
         robot.odTurn(-100, 1, 800, 0.025, false);
-        robot.odStrafe(-100, 0.4, -133, 12, 3, 1000, 0.015, false);
-        robot.odStrafe(-100, 0.35, -135, 11, 1.5, 1000, 0.02, true);
+        robot.odStrafe(-100, 0.44, -133, 11, 3, 1000, 0.015, false);
+        robot.odStrafe(-100, 0.35, -135, 8, 1.5, 1000, 0.02, true);
         robot.odometer.odSleep(400);
 
         // spin carousel
