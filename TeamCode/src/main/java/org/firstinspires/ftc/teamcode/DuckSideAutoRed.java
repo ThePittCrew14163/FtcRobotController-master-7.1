@@ -30,7 +30,7 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-40, 1, -108, 16, 4, 1500, 0.025, false);
 
         } else if (this.tse_position == TSE_Position.CENTER) { // bottom tray
-            robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*49/90, robot.armHinge);
+            robot.motorTurnNoReset(0.7, robot.ARM_HINGE_UP_CLICKS*47/90, robot.armHinge);
             robot.odStrafe(0, 1, -98, 19, 4, 1200, 0.025, true);
             robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*-32, robot.armTurnstile);
             robot.odometer.odSleep(60);
