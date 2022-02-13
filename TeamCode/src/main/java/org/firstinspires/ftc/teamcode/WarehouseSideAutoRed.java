@@ -47,7 +47,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(0, 1, -66, 12, 4, 1200, 0.025, false);
 
         } else { // top tray
-            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 72 / 90, robot.armHinge);
+            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 74 / 90, robot.armHinge);
             robot.odStrafe(-20, 1, -66, 10, 4, 1200, 0.025, false);
             robot.motorTurnNoReset(0.6, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * 148, robot.armTurnstile);
             robot.odTurn(-140, 1, 1000);
@@ -97,18 +97,18 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.resetFreightHoldingTacking();
             robot.intake.setPower(robot.INTAKE_ON_POWER);
             robot.odStrafe(-92, 1, -45, 2, 3, 900, 0.02, false);
-            robot.odStrafe(-120, 0.8, -25, 8, 4, 1100, 0.02, false, true);
-            robot.odStrafe(-50, 0.7, -31, 10, 3, 1300, 0.014, false, true);
+            robot.odStrafe(-120, 0.8, -25-c, 8, 4, 1100, 0.02, false, true);
+            robot.odStrafe(-50, 0.7, -31-c, 10, 3, 1300, 0.014, false, true);
             if (!robot.isHoldingFreight()) {
-                robot.odStrafe(-140, 0.8, -30, 4, 3, 1100, 0.02, false, true);
+                robot.odStrafe(-140, 0.8, -30-c, 4, 3, 1100, 0.02, false, true);
             }
-            if (System.currentTimeMillis() - startTimeInMs > 22000) {
+            if (System.currentTimeMillis() - startTimeInMs > 21600) {
                 break;
             }
 
             // leave warehouse
             robot.odStrafe(-90, 1, -44, 3, 3, 1200, 0.02, false);
-            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 72 / 90, robot.armHinge);
+            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 74 / 90, robot.armHinge);
             robot.odStrafe(-90, 1, -65, 3, 3, 1100, 0.02, false);
 
             // score freight
@@ -137,7 +137,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-92, 1, -68, 2, 3, 300, 0.02, false);
             robot.motorTurnNoReset(0.5, 0, robot.armHinge);
 
-            c+=3;
+            c+=2;
         }
 
         // park

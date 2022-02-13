@@ -76,7 +76,7 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-40, 1, -123, 13, 4, 3000);
         }
         robot.odTurn(-100, 0.8, 800, 0.01, false);
-        robot.odStrafe(-100, 0.44, -133, 12, 3, 1000, 0.015, false);
+        robot.odStrafe(-100, 0.46, -133, 12, 3, 1000, 0.015, false);
         robot.odStrafe(-100, 0.35, -135, 10, 1.5, 1000, 0.02, true);
         robot.odometer.odSleep(400);
 
@@ -95,15 +95,15 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         // pick up duck TODO: make duck-finding vision software?
         robot.odStrafe(-105, 0.8, -110, 13, 4, 1300, 0.02, true);
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odTurn(145, 1, 1100);
-        robot.odStrafe(145, 0.7, -109, 16, 4, 1200, 0.02, false);
+        robot.odTurn(135, 1, 1100);
+        robot.odStrafe(135, 0.7, -109, 16, 4, 1200, 0.02, false);
 
         // TODO: use distance sensor here?
-        robot.odStrafe(145, 0.4, -124, 15.5, 3, 3200);
+        robot.odStrafe(135, 0.4, -124, 15.5, 3, 3200);
         robot.odTurn(60, 0.7, 1200);
 
         // score duck
-        robot.odStrafe(150, 0.7, -123, 24, 4, 1500, 0.025, false);
+        robot.odStrafe(150, 0.7, -124, 24, 4, 1500, 0.025, false);
         robot.odStrafe(180, 1, -129, 34, 4, 1500, 0.02, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
         robot.intakeFlap.setPosition(0);
@@ -123,17 +123,13 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odometer.odSleep(800);
 
         // park
-        robot.motorTurnNoReset(1, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*80, robot.armTurnstile);
+        robot.motorTurnNoReset(1, 0, robot.armTurnstile);
         robot.intakeFlap.setPosition(1);
-        robot.odStrafe(90, 1, -116, 53, 4, 2000, 0.02, false);
-        robot.intake.setPower(0);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*45/90, robot.armHinge);
-        robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*5, robot.armTurnstile);
-        robot.odTurn(180, 1, 600, 0.008, false);
-        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*3/90, robot.armHinge);
-        robot.odTurn(-90, 1, 800, 0.008, true);
-        robot.odStrafe(-90, 1, -136, 40, 4, 1300, 0.025, false);
-        robot.odStrafe(-90, 0.8, -140, 34, 2, 1300, 0.03, true);
+        robot.odStrafe(90, 0.6, -114, 50, 4, 1500, 0.02, true);
+        robot.odometer.odSleep(800);
+        robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
+        robot.odStrafe(90, 1, -123, 37, 4, 1300, 0.025, false);
+        robot.odStrafe(90, 0.8, -130, 33, 2, 1300, 0.03, true);
 
     }
 }
