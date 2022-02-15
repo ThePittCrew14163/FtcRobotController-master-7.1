@@ -57,6 +57,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
             robot.odometer.odSleep(1200);
             robot.intake.setPower(robot.INTAKE_ON_POWER/3);
+            robot.intakeFlap.setPosition(1);
 
             robot.odStrafe(0, 1, -66, 12, 4, 1200, 0.025, false);
 
@@ -131,8 +132,8 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
         // park
         robot.intake.setPower(robot.INTAKE_ON_POWER);
-        robot.odStrafe(-92, 1, -42, 5, 6, 700, 0.025, false);
-        robot.odStrafe(-90, 1, -36, 5, 3, 600, 0.025, false);
+        robot.odStrafe(-92, 1, -40, 4, 6, 700, 0.025, false);
+        robot.odStrafe(-90, 1, -35, 4, 3, 800, 0.025, false);
         robot.odTurn(-90, 0.9, 900);
     }
 }
