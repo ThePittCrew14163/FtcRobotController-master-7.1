@@ -96,8 +96,8 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             robot.resetFreightHoldingTacking();
             robot.intake.setPower(robot.INTAKE_ON_POWER);
             robot.odStrafe(92, 1, 45, 2, 3, 800, 0.025, false);
-            robot.odStrafe(120, 0.8, 25+c, 8, 4, 1100, 0.02, false, true);
-            robot.odStrafe(50, 0.7, 31+c, 10, 3, 1300, 0.014, false, true);
+            robot.odStrafe(120, 0.8, 25+c, 8, 4, 1300, 0.02, false, true);
+            robot.odStrafe(50, 0.7, 31+c, 11, 3, 1100, 0.014, false, true);
             if (!robot.isHoldingFreight()) {
                 robot.odStrafe(150, 0.8, 30+c, 4, 3, 1100, 0.02, false, true);
             }
@@ -137,7 +137,7 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(92, 1, 68, 2, 3, 300, 0.02, false);
             robot.motorTurnNoReset(0.5, 0, robot.armHinge);
 
-            c+=2;
+            c+=3;
         }
 
         // park
