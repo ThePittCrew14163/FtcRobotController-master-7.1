@@ -102,7 +102,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-90, 1, -65, 3, 3, 1100, 0.02, false);
 
             // score freight
-            robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * (160+c), robot.armTurnstile);
+            robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * (159+c), robot.armTurnstile);
             robot.odStrafe(-100, 1, -70, 10, 5, 700, 0.025, false);
             robot.odTurn(-140, 1, 400, 0.015, false);
             robot.intakeFlap.setPosition(0);
