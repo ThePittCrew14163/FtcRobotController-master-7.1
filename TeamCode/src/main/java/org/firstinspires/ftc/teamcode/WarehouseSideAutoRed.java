@@ -87,8 +87,8 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.resetFreightHoldingTacking();
             robot.intake.setPower(robot.INTAKE_ON_POWER);
             robot.odStrafe(-92, 1, -45, 2, 3, 900, 0.02, false);
-            robot.odStrafe(-120, 0.8, -25-c, 8, 4, 1300, 0.02, false, true);
-            robot.odStrafe(-50, 0.7, -31-c, 11, 3, 1100, 0.014, false, true);
+            robot.odStrafe(-123, 0.8, -25-c, 8, 4, 1300, 0.02, false, true);
+            robot.odStrafe(-50, 0.7, -30-c, 11, 3, 1100, 0.014, false, true);
             if (!robot.isHoldingFreight()) {
                 robot.odStrafe(-140, 0.8, -30-c, 4, 3, 1100, 0.02, false, true);
             }
@@ -98,7 +98,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
             // leave warehouse
             robot.odStrafe(-90, 1, -44, 3, 3, 1200, 0.02, false);
-            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 74 / 90, robot.armHinge);
+            robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS * 73 / 90, robot.armHinge);
             robot.odStrafe(-90, 1, -65, 3, 3, 1100, 0.02, false);
 
             // score freight
@@ -127,7 +127,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-92, 1, -68, 2, 3, 300, 0.02, false);
             robot.motorTurnNoReset(0.5, 0, robot.armHinge);
 
-            c+=3;
+            c+=6;
         }
 
         // park
