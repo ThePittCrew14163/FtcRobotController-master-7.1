@@ -95,11 +95,11 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             // dig through warehouse for freight
             robot.resetFreightHoldingTacking();
             robot.intake.setPower(robot.INTAKE_ON_POWER);
-            robot.odStrafe(92, 1, 45, 2, 3, 800, 0.025, false);
-            robot.odStrafe(123, 0.8, 25+c, 8, 4, 1300, 0.02, false, true);
-            robot.odStrafe(50, 0.7, 30+c, 11, 3, 1100, 0.014, false, true);
+            robot.odStrafe(92, 1, 45-c, 2, 3, 800, 0.025, false);
+            robot.odStrafe(123, 0.8, 25-c, 8, 4, 1300, 0.02, false, true);
+            robot.odStrafe(50, 0.7, 30-c, 11, 3, 1100, 0.014, false, true);
             if (!robot.isHoldingFreight()) {
-                robot.odStrafe(150, 0.8, 30+c, 4, 3, 1100, 0.02, false, true);
+                robot.odStrafe(150, 0.8, 30-c, 4, 3, 1100, 0.02, false, true);
             }
             
             if (System.currentTimeMillis() - startTimeInMs > 21600) {
@@ -137,7 +137,7 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(92, 1, 68, 2, 3, 300, 0.02, false);
             robot.motorTurnNoReset(0.5, 0, robot.armHinge);
 
-            c+=6;
+            c+=4;
         }
 
         // park
