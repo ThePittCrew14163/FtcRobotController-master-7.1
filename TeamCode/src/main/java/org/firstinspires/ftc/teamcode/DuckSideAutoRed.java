@@ -130,6 +130,7 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
         robot.odStrafe(90, 1, -123, 37, 4, 1300, 0.025, false);
         robot.odStrafe(90, 0.8, -130, 33, 2, 1300, 0.03, true);
+        robot.odTurn(90, 1, 900, 0.015, true);
 
     }
 }

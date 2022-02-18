@@ -102,7 +102,7 @@ public class WarehouseSideAutoBlue extends FreightFrenzy_BaseAutoSetup {
                 robot.odStrafe(150, 0.8, 30-c, 4, 3, 1100, 0.02, false, true);
             }
             
-            if (System.currentTimeMillis() - startTimeInMs > 21600) {
+            if (System.currentTimeMillis() - startTimeInMs > 22200) {
                 break;
             }
 
