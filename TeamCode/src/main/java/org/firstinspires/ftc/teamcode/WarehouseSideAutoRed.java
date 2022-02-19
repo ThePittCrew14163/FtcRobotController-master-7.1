@@ -80,7 +80,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
 
         //while time left > 1 cycle time, cycle
         int c = 0;
-        while (System.currentTimeMillis() - startTimeInMs < 21000) {
+        while (System.currentTimeMillis() - startTimeInMs < 21200) {
             // starting at (angle=90deg, x=68, y=3)
 
             // dig through warehouse for freight
