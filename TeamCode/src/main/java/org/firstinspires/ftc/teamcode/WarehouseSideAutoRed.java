@@ -79,7 +79,7 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.motorTurnNoReset(0.5, 0, robot.armHinge);
 
         //while time left > 1 cycle time, cycle
-        int c = 0;
+        double c = 0;
         while (System.currentTimeMillis() - startTimeInMs < 21200) {
             // starting at (angle=90deg, x=68, y=3)
 
@@ -102,13 +102,13 @@ public class WarehouseSideAutoRed extends FreightFrenzy_BaseAutoSetup {
             robot.odStrafe(-90, 1, -65, 3, 3, 1100, 0.02, false);
 
             // score freight
-            robot.motorTurnNoReset(1, (int) robot.ARM_TURNSTILE_CLICKS_PER_DEG * (159+c), robot.armTurnstile);
+            robot.motorTurnNoReset(1, (int) (robot.ARM_TURNSTILE_CLICKS_PER_DEG * (159+c)), robot.armTurnstile);
             robot.odStrafe(-100, 1, -70, 10, 5, 700, 0.025, false);
             robot.odTurn(-140, 1, 400, 0.015, false);
             robot.intakeFlap.setPosition(0);
             robot.odStrafe(-140, 1, -73, 24, 5, 1000, 0.025, true);
             robot.odometer.odSleep(90);
-            robot.odStrafe(-140, 0.45, -77, 31, 1.5, 1000);
+            robot.odStrafe(-140, 0.45, -77, 31.5+(c/3), 1.4, 1000);
 
             robot.odometer.odSleep(100);
             robot.intake.setPower(robot.INTAKE_OUTPUT_POWER);
