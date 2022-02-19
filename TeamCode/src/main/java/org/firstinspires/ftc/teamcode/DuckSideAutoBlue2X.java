@@ -39,7 +39,7 @@ public class DuckSideAutoBlue2X extends DuckSideAutoBlue {
 
         // park
         robot.odStrafe(0, 1, 78, 15, 5, 1000, 0.03, false);
-        robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*5/90, robot.armHinge);
+        robot.motorTurnNoReset(0.8, robot.ARM_HINGE_UP_CLICKS*7/90, robot.armHinge);
         robot.odStrafe(0, 0.8, 77, 10, 4, 1000, 0.03, true);
         robot.odTurn(90, 1, 450, 0.008, false);
         robot.odStrafe(95, 1, 67, 3, 4, 1000);

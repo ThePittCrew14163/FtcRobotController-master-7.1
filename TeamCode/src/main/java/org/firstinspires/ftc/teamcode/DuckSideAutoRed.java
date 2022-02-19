@@ -109,13 +109,13 @@ public class DuckSideAutoRed extends FreightFrenzy_BaseAutoSetup {
         robot.odStrafe(180, 1, -129, 34, 4, 1500, 0.02, false);
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*75/90, robot.armHinge);
         robot.intakeFlap.setPosition(0);
+        robot.intake.setPower(robot.INTAKE_ON_POWER/3.5);
         robot.odStrafe(180, 1, -130, 45, 4, 1000, 0.02, false);
         robot.motorTurnNoReset(0.6, (int)robot.ARM_TURNSTILE_CLICKS_PER_DEG*180, robot.armTurnstile);
         robot.odTurn(90, 1, 900, 0.005, false);
 
         robot.odStrafe(90, 1, -109, 47, 4, 2000, 0.02, true);
         robot.odometer.odSleep(75);
-        robot.intake.setPower(robot.INTAKE_ON_POWER/2);
         robot.odStrafe(90, 0.4, -104, 47, 1.5, 1000);
 
         robot.motorTurnNoReset(0.5, robot.ARM_HINGE_UP_CLICKS*64/90, robot.armHinge);
